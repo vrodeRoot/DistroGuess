@@ -1,4 +1,4 @@
-# Distrodle 🐧🎯
+# DistroGuess 🐧🎯
 
 > **A Wordle/Loldle-style deduction game for Linux enthusiasts, built with pure Material Design 3 and 100% Vibe Coding.**
 
