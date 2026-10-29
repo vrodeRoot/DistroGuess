@@ -1,0 +1,2066 @@
+```html
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distrodle — Угадай Linux Дистрибутив | Игра-викторина от vroderoot</title>
+    
+    <!-- Primary Google SEO Metadata -->
+    <meta name="description" content="Distrodle — ежедневная и бесконечная игра-головоломка по дистрибутивам Linux. Угадывай дистрибутивы по пакетному менеджеру, системе инициализации (Init), DE, базе и году выпуска. Создано vroderoot (100% Vibe Code на Gemini Argon).">
+    <meta name="keywords" content="Distrodle, угадай линукс дистрибутив, игра про Linux, викторина Linux, Arch, Debian, Ubuntu, Fedora, NixOS, Gentoo, vroderoot, Gemini Argon, vibe coding, вайб код">
+    <meta name="author" content="vroderoot">
+    <meta name="creator" content="vroderoot">
+    <meta name="generator" content="Gemini Argon (100% Vibe Code)">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#0E1513">
+
+    <!-- Open Graph / Facebook / Telegram / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Distrodle by vroderoot">
+    <meta property="og:title" content="Distrodle — Угадай Linux Дистрибутив (Игра для линуксоидов)">
+    <meta property="og:description" content="Ежедневная и бесконечная игра по дистрибутивам Linux в дизайне Material Design 3. На 100% Vibe Code на Gemini Argon от vroderoot.">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Distrodle — Угадай Linux Дистрибутив">
+    <meta name="twitter:description" content="Ежедневная головоломка для линуксоидов: сравнивай пакетные менеджеры, Init, DE и год релиза. Автор: vroderoot (100% Vibe Code на Gemini Argon).">
+    <meta name="twitter:creator" content="@vroderoot">
+
+    <!-- Google Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Distrodle",
+        "alternateName": "Linux Distro Guessing Game",
+        "description": "Интерактивная ежедневная головоломка по дистрибутивам Linux. Создано на 100% методом Vibe Coding на модели Gemini Argon.",
+        "genre": ["Puzzle", "Trivia", "Linux"],
+        "inLanguage": ["ru", "en"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "author": {
+            "@type": "Person",
+            "name": "vroderoot",
+            "sameAs": [
+                "https://www.tiktok.com/@vroderoot",
+                "https://youtube.com/@vroderoot"
+            ]
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "vroderoot",
+            "sameAs": [
+                "https://www.tiktok.com/@vroderoot",
+                "https://youtube.com/@vroderoot"
+            ]
+        },
+        "softwareAddOn": {
+            "@type": "SoftwareApplication",
+            "name": "Gemini Argon (100% Vibe Code)"
+        }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Roboto & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        md: {
+                            bg: 'var(--md-bg)',
+                            surface: 'var(--md-surface)',
+                            surfaceVariant: 'var(--md-surface-variant)',
+                            surfaceContainer: 'var(--md-surface-container)',
+                            surfaceContainerHigh: 'var(--md-surface-container-high)',
+                            primary: 'var(--md-primary)',
+                            onPrimary: 'var(--md-on-primary)',
+                            primaryContainer: 'var(--md-primary-container)',
+                            onPrimaryContainer: 'var(--md-on-primary-container)',
+                            secondaryContainer: 'var(--md-secondary-container)',
+                            onSecondaryContainer: 'var(--md-on-secondary-container)',
+                            onSurface: 'var(--md-on-surface)',
+                            onSurfaceVariant: 'var(--md-on-surface-variant)',
+                            outline: 'var(--md-outline)',
+                            outlineVariant: 'var(--md-outline-variant)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Material Design 3 Color Tokens (Tonal Palette: Terminal Mint / Cyan) */
+        :root {
+            --md-bg: #F6FBF8;
+            --md-surface: #F6FBF8;
+            --md-surface-variant: #DAE5E0;
+            --md-surface-container: #EAEFE9;
+            --md-surface-container-high: #E2E9E4;
+            --md-primary: #006B58;
+            --md-on-primary: #FFFFFF;
+            --md-primary-container: #7BF8D8;
+            --md-on-primary-container: #002019;
+            --md-secondary-container: #CFE9DF;
+            --md-on-secondary-container: #07201A;
+            --md-on-surface: #171D1B;
+            --md-on-surface-variant: #3F4945;
+            --md-outline: #6F7975;
+            --md-outline-variant: #BFC9C4;
+        }
+
+        html.dark {
+            --md-bg: #0E1513;
+            --md-surface: #0E1513;
+            --md-surface-variant: #3F4945;
+            --md-surface-container: #1A211F;
+            --md-surface-container-high: #252B29;
+            --md-primary: #5DDBBC;
+            --md-on-primary: #00382D;
+            --md-primary-container: #005142;
+            --md-on-primary-container: #7BF8D8;
+            --md-secondary-container: #334B43;
+            --md-on-secondary-container: #CBE8DD;
+            --md-on-surface: #DEE4E0;
+            --md-on-surface-variant: #BFC9C4;
+            --md-outline: #89938E;
+            --md-outline-variant: #3F4945;
+        }
+
+        body {
+            background-color: var(--md-bg);
+            color: var(--md-on-surface);
+            transition: background-color 0.25s ease, color 0.25s ease;
+            overflow-x: hidden;
+        }
+
+        /* Flip Card Animation for Guess Cells */
+        @keyframes flipReveal {
+            0% {
+                transform: perspective(600px) rotateX(90deg) scale(0.95);
+                opacity: 0;
+            }
+            60% {
+                transform: perspective(600px) rotateX(-8deg) scale(1.01);
+                opacity: 1;
+            }
+            100% {
+                transform: perspective(600px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .cell-reveal {
+            opacity: 0;
+            animation: flipReveal 0.48s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--md-outline-variant);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--md-outline);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+
+        /* Hide scrollbar for quick filter chips */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- TOP BAR & HEADER (MD3 Top App Bar + Responsive Segmented Button) -->
+    <header class="sticky top-0 z-30 backdrop-blur-md bg-md-bg/90 border-b border-md-outlineVariant transition-colors">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+            
+            <!-- Brand Title -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-md-primaryContainer text-md-onPrimaryContainer flex items-center justify-center shadow-sm font-mono font-bold text-base sm:text-lg shrink-0">
+                    &gt;_
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5 sm:gap-2">
+                        <h1 class="text-lg sm:text-xl font-bold tracking-tight leading-none">Distrodle</h1>
+                        <span id="dailyBadge" class="text-[11px] sm:text-xs font-mono px-2 py-0.5 rounded-full bg-md-secondaryContainer text-md-onSecondaryContainer font-medium">#1</span>
+                    </div>
+                    <p id="subtitleText" class="text-[11px] sm:text-xs text-md-onSurfaceVariant line-clamp-1 mt-0.5">Угадай Linux дистрибутив по параметрам</p>
+                </div>
+            </div>
+
+            <!-- Mode Selector (MD3 Segmented Button) -->
+            <div class="inline-flex rounded-full border border-md-outline/60 p-0.5 bg-md-surfaceContainer order-3 sm:order-2 w-full sm:w-auto justify-center">
+                <button id="modeDailyBtn" onclick="switchMode('daily')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all">
+                    <span class="material-symbols-outlined text-[16px] sm:text-[18px]">calendar_today</span>
+                    <span id="modeDailyLabel">Задание дня</span>
+                </button>
+                <button id="modeEndlessBtn" onclick="switchMode('endless')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all">
+                    <span class="material-symbols-outlined text-[16px] sm:text-[18px]">all_inclusive</span>
+                    <span id="modeEndlessLabel">Бесконечный</span>
+                </button>
+            </div>
+
+            <!-- Action Icons (Legend, Lang, Theme) -->
+            <div class="flex items-center gap-1 sm:gap-1.5 order-2 sm:order-3">
+                <!-- New Game Button (Only visible in endless mode) -->
+                <button id="newEndlessBtn" onclick="startNewEndlessGame()" class="hidden items-center gap-1 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-md-primaryContainer text-md-onPrimaryContainer hover:opacity-90 active:scale-95 transition text-xs font-medium" title="Загадать другой">
+                    <span class="material-symbols-outlined text-[18px]">refresh</span>
+                    <span id="newGameBtnText" class="hidden md:inline">Заново</span>
+                </button>
+
+                <!-- Give Up Button (Endless Mode) -->
+                <button id="giveUpBtn" onclick="surrenderGame()" class="hidden items-center gap-1 px-2.5 py-1.5 sm:py-2 rounded-full bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:text-red-400 active:scale-95 transition text-xs font-medium" title="Сдаться">
+                    <span class="material-symbols-outlined text-[18px]">flag</span>
+                </button>
+
+                <!-- Vibe Code / About Credits Tab Button -->
+                <button onclick="openModalWithTab('about')" class="h-9 sm:h-10 px-2.5 sm:px-3 rounded-full bg-md-primaryContainer/70 hover:bg-md-primaryContainer text-md-onPrimaryContainer flex items-center gap-1 text-xs font-medium transition shadow-sm" title="100% Vibe Code • vroderoot">
+                    <span class="material-symbols-outlined text-[16px] sm:text-[18px]">auto_awesome</span>
+                    <span id="vibeBtnLabel" class="hidden md:inline font-mono font-bold">Vibe Code</span>
+                </button>
+
+                <!-- Info / Legend Modal Toggle -->
+                <button onclick="openModalWithTab('rules')" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full hover:bg-md-surfaceContainerHigh flex items-center justify-center text-md-onSurfaceVariant transition" title="Помощь / Цвета">
+                    <span class="material-symbols-outlined text-[20px]">help</span>
+                </button>
+
+                <!-- Language Switcher -->
+                <button onclick="toggleLanguage()" class="h-9 sm:h-10 px-2.5 sm:px-3 rounded-full bg-md-surfaceContainerHigh hover:bg-md-surfaceVariant text-xs font-mono font-bold tracking-wider transition flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[15px] sm:text-[16px]">translate</span>
+                    <span id="langBadge">RU</span>
+                </button>
+
+                <!-- Theme Switcher -->
+                <button onclick="toggleTheme()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-md-surfaceContainerHigh hover:bg-md-surfaceVariant flex items-center justify-center transition" title="Тема">
+                    <span id="themeIcon" class="material-symbols-outlined text-[19px] sm:text-[20px]">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE: GUESS MATRIX (DESKTOP) & CARDS (MOBILE) -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-2.5 sm:px-6 pt-3 sm:pt-4 pb-6 flex flex-col gap-3 sm:gap-4">
+        
+        <!-- Color Hint Bar (Compact on Mobile) -->
+        <div class="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2 rounded-2xl bg-md-surfaceContainer text-[11px] sm:text-xs text-md-onSurfaceVariant border border-md-outlineVariant/50">
+            <div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+                <div class="flex items-center gap-1">
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-600 inline-block"></span>
+                    <span id="legendExact">Точно</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-600 inline-block"></span>
+                    <span id="legendPartial">Частично (±3 г.)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-700 inline-block"></span>
+                    <span id="legendWrong">Неверно</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 font-mono text-[11px] sm:text-xs ml-auto">
+                <span id="attemptsCounter" class="font-bold text-md-primary">Попыток: 0</span>
+                <span class="hidden md:inline text-md-outline">|</span>
+                <span id="trademarkNotice" class="hidden md:inline opacity-80">Абстрактные геом. эмблемы (Parody SVG)</span>
+            </div>
+        </div>
+
+        <!-- Victory / Game Over Card (Hidden until game ends) -->
+        <div id="winBanner" class="hidden rounded-3xl p-4 sm:p-5 bg-md-primaryContainer text-md-onPrimaryContainer shadow-lg border border-md-primary/30 transition-all">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+                    <div id="winLogoContainer" class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-2xl bg-black/20 p-1.5 flex items-center justify-center"></div>
+                    <div>
+                        <div id="winTitle" class="text-base sm:text-xl font-bold">Вы угадали дистрибутив!</div>
+                        <p id="winDesc" class="text-xs sm:text-sm opacity-90 mt-0.5"></p>
+                        <p id="dailyCountdown" class="text-xs font-mono opacity-75 mt-1 hidden"></p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-end">
+                    <button onclick="copyShareResult()" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-md-onPrimaryContainer text-md-primaryContainer font-medium text-xs sm:text-sm hover:opacity-90 active:scale-95 transition shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">share</span>
+                        <span id="shareBtnText">Поделиться</span>
+                    </button>
+                    <button id="winNextEndlessBtn" onclick="startNewEndlessGame()" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-black/20 text-md-onPrimaryContainer font-medium text-xs sm:text-sm hover:bg-black/30 active:scale-95 transition">
+                        <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                        <span id="nextDistroBtnText">Следующий</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adaptive Comparison Container (No horizontal scroll required on Mobile!) -->
+        <div class="w-full flex flex-col gap-2">
+            <!-- Desktop Table Column Headers (Hidden on mobile < lg) -->
+            <div id="tableHeaderRow" class="hidden lg:grid grid-cols-8 gap-2 px-2 py-2.5 rounded-2xl bg-md-surfaceContainerHigh text-md-onSurfaceVariant text-xs font-bold uppercase tracking-wider text-center items-center">
+                <!-- Populated via JS -->
+            </div>
+
+            <!-- Empty State Placeholder -->
+            <div id="emptyStateBox" class="py-10 sm:py-12 px-4 rounded-3xl border-2 border-dashed border-md-outlineVariant/60 flex flex-col items-center justify-center text-center gap-2 text-md-onSurfaceVariant">
+                <span class="material-symbols-outlined text-3xl sm:text-4xl text-md-primary opacity-80">terminal</span>
+                <p id="emptyStateTitle" class="font-medium text-sm sm:text-base">Пока нет ни одной попытки</p>
+                <p id="emptyStateSub" class="text-xs opacity-75 max-w-md">Выберите любой дистрибутив из списка ниже или начните вводить его название в поле поиска, чтобы сделать первый ход.</p>
+            </div>
+
+            <!-- Guesses List Container (Renders Mobile Cards on <lg and Table Rows on >=lg) -->
+            <div id="guessesContainer" class="flex flex-col gap-3 lg:gap-2">
+                <!-- Inserted dynamically -->
+            </div>
+        </div>
+
+        <!-- Legal Non-Affiliation & Nominative Fair Use Disclaimer Footer -->
+        <footer class="mt-auto pt-4 pb-1 text-center text-[10px] sm:text-[11px] text-md-onSurfaceVariant/70 max-w-3xl mx-auto leading-relaxed">
+            <p id="legalFooterText">
+                Неофициальный фанатский проект (@vroderoot). Названия дистрибутивов приведены исключительно в справочно-информационных целях (Nominative Fair Use). Официальные логотипы не используются (все иконки — процедурная геометрия). Проект не связан и не одобрен Linux Foundation, Canonical, Red Hat, SPI или другими правообладателями.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- BOTTOM DOCK / MOBILE BOTTOM SHEET: SEARCH INPUT + QUICK CHIPS + DISTRO LIST -->
+    <section id="bottomDockSection" class="sticky bottom-0 z-30 bg-md-surfaceContainer/95 backdrop-blur-xl border-t border-md-outlineVariant shadow-2xl rounded-t-3xl sm:rounded-none transition-all">
+        
+        <!-- Mobile Drag Handle Pill (Tap or swipe to expand/collapse list on mobile) -->
+        <div id="mobileSheetHandle" onclick="toggleBottomList()" class="sm:hidden w-full pt-2 pb-1 flex flex-col items-center justify-center cursor-pointer active:opacity-70">
+            <div class="w-10 h-1 rounded-full bg-md-outline/50"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 pb-3 pt-1 sm:py-3 flex flex-col gap-2">
+            
+            <!-- Search Input & Counter Row -->
+            <div class="flex items-center gap-2">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-md-onSurfaceVariant text-[20px]">search</span>
+                    <input 
+                        id="distroSearchInput" 
+                        type="text" 
+                        autocomplete="off"
+                        placeholder="Поиск по названию, базе, пакетному менеджеру..."
+                        class="w-full pl-10 pr-9 py-2 sm:py-2.5 rounded-full bg-md-surfaceContainerHigh text-md-onSurface placeholder-md-onSurfaceVariant/70 border border-md-outline/40 focus:border-md-primary focus:outline-none focus:ring-2 focus:ring-md-primary/30 text-xs sm:text-sm transition"
+                    />
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full hover:bg-md-surfaceVariant flex items-center justify-center text-md-onSurfaceVariant">
+                        <span class="material-symbols-outlined text-[18px]">close</span>
+                    </button>
+                </div>
+
+                <!-- Expand Full Height Button (Mobile Only) -->
+                <button id="expandSheetBtn" onclick="toggleExpandSheet()" class="sm:hidden h-9 w-9 rounded-full bg-md-surfaceContainerHigh text-md-onSurfaceVariant flex items-center justify-center shrink-0 transition" title="Развернуть список">
+                    <span id="expandSheetIcon" class="material-symbols-outlined text-[18px]">open_in_full</span>
+                </button>
+
+                <!-- Toggle Collapse List Button -->
+                <button onclick="toggleBottomList()" class="h-9 sm:h-10 px-3 rounded-full bg-md-surfaceContainerHigh hover:bg-md-surfaceVariant text-md-onSurfaceVariant flex items-center gap-1 text-xs font-medium shrink-0 transition">
+                    <span id="availableCountBadge" class="font-mono font-bold text-md-primary">30</span>
+                    <span id="toggleListIcon" class="material-symbols-outlined text-[20px]">expand_more</span>
+                </button>
+            </div>
+
+            <!-- Quick Base Filter Chips (Especially helpful on mobile to avoid typing!) -->
+            <div id="quickFilterRow" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                <button onclick="setQuickFilter('')" data-filter="" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-primary text-md-onPrimary">
+                    Все / All
+                </button>
+                <button onclick="setQuickFilter('Debian')" data-filter="Debian" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant">
+                    Debian / Ubuntu
+                </button>
+                <button onclick="setQuickFilter('Arch')" data-filter="Arch" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant">
+                    Arch
+                </button>
+                <button onclick="setQuickFilter('Fedora')" data-filter="Fedora" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant">
+                    Fedora / RPM
+                </button>
+                <button onclick="setQuickFilter('Independent')" data-filter="Independent" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant">
+                    Independent
+                </button>
+                <button onclick="setQuickFilter('Rolling')" data-filter="Rolling" class="qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant">
+                    Rolling
+                </button>
+            </div>
+
+            <!-- Scrollable Distro Catalog Grid (Restored!) -->
+            <div id="bottomListWrapper" class="max-h-40 sm:max-h-52 overflow-y-auto pr-1 transition-all">
+                <div id="distroCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastBox" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div class="px-4 py-2.5 rounded-full bg-md-onSurface text-md-surface text-xs sm:text-sm font-medium shadow-xl flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+            <span id="toastText">Скопировано!</span>
+        </div>
+    </div>
+
+    <!-- HELP & LEGAL NOTICE & VIBE CODE CREDITS MODAL (WITH TABS) -->
+    <div id="helpModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) toggleHelpModal(false)">
+        <div class="bg-md-surfaceContainerHigh border border-md-outlineVariant rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between gap-2">
+                <h2 id="modalTitle" class="text-base sm:text-lg font-bold flex items-center gap-2">
+                    <span class="material-symbols-outlined text-md-primary">info</span>
+                    <span>Distrodle</span>
+                </h2>
+                <button onclick="toggleHelpModal(false)" class="w-8 h-8 rounded-full hover:bg-md-surfaceVariant flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <!-- Modal MD3 Segmented Tabs (Rules vs Vibe Code Credits) -->
+            <div class="grid grid-cols-2 rounded-full bg-md-surfaceContainer p-1 border border-md-outlineVariant/60">
+                <button id="tabRulesBtn" onclick="switchModalTab('rules')" class="flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    <span id="tabRulesLabel">Правила</span>
+                </button>
+                <button id="tabAboutBtn" onclick="switchModalTab('about')" class="flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all">
+                    <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                    <span id="tabAboutLabel">100% Vibe Code</span>
+                </button>
+            </div>
+            
+            <!-- Tab 1: Rules Content -->
+            <div id="modalBody" class="text-sm text-md-onSurfaceVariant space-y-3 leading-relaxed">
+                <!-- Filled via JS translation -->
+            </div>
+
+            <!-- Tab 2: 100% Vibe Code & Author Credits Content -->
+            <div id="modalAboutBody" class="hidden text-sm text-md-onSurfaceVariant space-y-3 leading-relaxed">
+                <!-- Filled via JS translation -->
+            </div>
+
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-md-outlineVariant/40">
+                <div class="flex items-center gap-2 text-xs font-mono text-md-onSurfaceVariant">
+                    <span>by <strong class="text-md-primary">vroderoot</strong></span>
+                    <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-full bg-md-surfaceContainer hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer transition">TikTok</a>
+                    <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-full bg-md-surfaceContainer hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer transition">YouTube</a>
+                </div>
+                <button onclick="toggleHelpModal(false)" class="px-5 py-2 rounded-full bg-md-primary text-md-onPrimary text-sm font-medium hover:opacity-90 transition">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ============================================================================
+         * 1. DISTRO DATABASE (30 Popular Linux Distributions)
+         * Each distro uses a custom procedural Geometric Parody Icon to guarantee
+         * 100% trademark & copyright safety while remaining visually recognizable!
+         * ============================================================================ */
+        const DISTROS = [
+            {
+                id: 'ubuntu',
+                name: 'Ubuntu',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'snap'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2004,
+                origin: { ru: 'Остров Мэн / Британия', en: 'Isle of Man / UK' },
+                colors: ['#E95420', '#77216F'],
+                shape: 'tri-nodes'
+            },
+            {
+                id: 'debian',
+                name: 'Debian',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['GNOME', 'KDE Plasma', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 1993,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#A80030', '#D70A53'],
+                shape: 'spiral-arc'
+            },
+            {
+                id: 'arch',
+                name: 'Arch Linux',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2002,
+                origin: { ru: 'Канада', en: 'Canada' },
+                colors: ['#1793D1', '#0B4F6C'],
+                shape: 'peak-triangle'
+            },
+            {
+                id: 'fedora',
+                name: 'Fedora',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm', 'flatpak'],
+                de: ['GNOME', 'KDE Plasma'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2003,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#3C6EB4', '#294172'],
+                shape: 'infinity-loop'
+            },
+            {
+                id: 'mint',
+                name: 'Linux Mint',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'flatpak'],
+                de: ['Cinnamon', 'MATE', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2006,
+                origin: { ru: 'Ирландия / Франция', en: 'Ireland / France' },
+                colors: ['#87CF3E', '#4E9A06'],
+                shape: 'mint-leaf'
+            },
+            {
+                id: 'manjaro',
+                name: 'Manjaro',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman', 'pamac'],
+                de: ['KDE Plasma', 'Xfce', 'GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2011,
+                origin: { ru: 'Германия / Австрия', en: 'Germany / Austria' },
+                colors: ['#35BF5C', '#1D7837'],
+                shape: 'three-pillars'
+            },
+            {
+                id: 'opensuse-tw',
+                name: 'openSUSE Tumbleweed',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['zypper', 'rpm'],
+                de: ['KDE Plasma', 'GNOME', 'Xfce'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2014,
+                origin: { ru: 'Германия', en: 'Germany' },
+                colors: ['#73BA25', '#173F4F'],
+                shape: 'gecko-eye'
+            },
+            {
+                id: 'gentoo',
+                name: 'Gentoo',
+                basedOn: ['Independent'],
+                init: ['OpenRC', 'systemd'],
+                pkg: ['portage'],
+                de: ['None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2000,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#54487A', '#9183B8'],
+                shape: 'pebble-gem'
+            },
+            {
+                id: 'slackware',
+                name: 'Slackware',
+                basedOn: ['SLS'],
+                init: ['SysVinit'],
+                pkg: ['pkgtools', 'slackpkg'],
+                de: ['KDE Plasma', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 1993,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#2C3E50', '#4CA1AF'],
+                shape: 'pipe-monogram'
+            },
+            {
+                id: 'kali',
+                name: 'Kali Linux',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['Xfce', 'GNOME', 'KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2013,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#268BEE', '#0B2545'],
+                shape: 'cyber-shield'
+            },
+            {
+                id: 'popos',
+                name: 'Pop!_OS',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'flatpak'],
+                de: ['COSMIC', 'GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2017,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#48B9C7', '#FAA41A'],
+                shape: 'rocket-excl'
+            },
+            {
+                id: 'elementary',
+                name: 'elementary OS',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'flatpak'],
+                de: ['Pantheon'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2011,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#64Baff', '#3689E6'],
+                shape: 'orbit-e'
+            },
+            {
+                id: 'zorin',
+                name: 'Zorin OS',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'flatpak', 'snap'],
+                de: ['GNOME', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2009,
+                origin: { ru: 'Ирландия', en: 'Ireland' },
+                colors: ['#15A6F0', '#0D5C91'],
+                shape: 'z-hexagon'
+            },
+            {
+                id: 'mxlinux',
+                name: 'MX Linux',
+                basedOn: ['Debian', 'antiX'],
+                init: ['SysVinit', 'systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['Xfce', 'KDE Plasma', 'Fluxbox'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 2014,
+                origin: { ru: 'США / Греция', en: 'USA / Greece' },
+                colors: ['#333333', '#7F8C8D'],
+                shape: 'cross-peaks'
+            },
+            {
+                id: 'endeavouros',
+                name: 'EndeavourOS',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman', 'yay'],
+                de: ['KDE Plasma', 'Xfce', 'GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2019,
+                origin: { ru: 'Нидерланды', en: 'Netherlands' },
+                colors: ['#7F3FBF', '#FF6B6B'],
+                shape: 'sail-prism'
+            },
+            {
+                id: 'garuda',
+                name: 'Garuda Linux',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['KDE Plasma', 'GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2020,
+                origin: { ru: 'Индия', en: 'India' },
+                colors: ['#00E5FF', '#D500F9'],
+                shape: 'neon-wing'
+            },
+            {
+                id: 'nixos',
+                name: 'NixOS',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['nix'],
+                de: ['GNOME', 'KDE Plasma'],
+                releaseModel: 'Hybrid',
+                arch: ['x86_64', 'ARM64'],
+                year: 2003,
+                origin: { ru: 'Нидерланды', en: 'Netherlands' },
+                colors: ['#5277C3', '#7EBAE4'],
+                shape: 'snowflake-hex'
+            },
+            {
+                id: 'void',
+                name: 'Void Linux',
+                basedOn: ['Independent'],
+                init: ['runit'],
+                pkg: ['xbps'],
+                de: ['Xfce', 'None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2008,
+                origin: { ru: 'Испания', en: 'Spain' },
+                colors: ['#478061', '#295340'],
+                shape: 'void-eclipse'
+            },
+            {
+                id: 'alpine',
+                name: 'Alpine Linux',
+                basedOn: ['Independent'],
+                init: ['OpenRC'],
+                pkg: ['apk'],
+                de: ['None (DIY)'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2005,
+                origin: { ru: 'Норвегия', en: 'Norway' },
+                colors: ['#0D597F', '#5D99C6'],
+                shape: 'twin-alps'
+            },
+            {
+                id: 'artix',
+                name: 'Artix Linux',
+                basedOn: ['Arch'],
+                init: ['OpenRC', 'runit', 's6', 'dinit'],
+                pkg: ['pacman'],
+                de: ['KDE Plasma', 'Xfce', 'MATE'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2017,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#10A0CC', '#1B4965'],
+                shape: 'split-delta'
+            },
+            {
+                id: 'devuan',
+                name: 'Devuan',
+                basedOn: ['Debian'],
+                init: ['SysVinit', 'OpenRC', 'runit'],
+                pkg: ['apt', 'dpkg'],
+                de: ['Xfce', 'KDE Plasma', 'MATE'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2015,
+                origin: { ru: 'Италия / Международный', en: 'Italy / Global' },
+                colors: ['#404066', '#6C5CE7'],
+                shape: 'comet-arc'
+            },
+            {
+                id: 'solus',
+                name: 'Solus',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['eopkg'],
+                de: ['Budgie', 'GNOME', 'KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2015,
+                origin: { ru: 'Ирландия', en: 'Ireland' },
+                colors: ['#5294E2', '#2B303B'],
+                shape: 'sailboat-crest'
+            },
+            {
+                id: 'nobara',
+                name: 'Nobara',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm', 'flatpak'],
+                de: ['KDE Plasma', 'GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2022,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#C0392B', '#8E44AD'],
+                shape: 'gamepad-crest'
+            },
+            {
+                id: 'cachyos',
+                name: 'CachyOS',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['KDE Plasma', 'GNOME', 'Hyprland'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2021,
+                origin: { ru: 'Германия', en: 'Germany' },
+                colors: ['#00D2B8', '#00695C'],
+                shape: 'lightning-hex'
+            },
+            {
+                id: 'bazzite',
+                name: 'Bazzite',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak'],
+                de: ['KDE Plasma', 'GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2023,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#7C4DFF', '#536DFE'],
+                shape: 'crystal-cube'
+            },
+            {
+                id: 'tails',
+                name: 'Tails',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2009,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#56347C', '#2ECC71'],
+                shape: 'incognito-plug'
+            },
+            {
+                id: 'qubes',
+                name: 'Qubes OS',
+                basedOn: ['Fedora', 'Xen'],
+                init: ['systemd'],
+                pkg: ['dnf', 'qubes-dom0'],
+                de: ['Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2012,
+                origin: { ru: 'Польша', en: 'Poland' },
+                colors: ['#3874D8', '#1B3B6F'],
+                shape: 'iso-cubes'
+            },
+            {
+                id: 'rhel',
+                name: 'Red Hat (RHEL)',
+                basedOn: ['Fedora', 'Independent'],
+                init: ['systemd'],
+                pkg: ['dnf', 'yum', 'rpm'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 1994,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#EE0000', '#8A0000'],
+                shape: 'brim-crown'
+            },
+            {
+                id: 'rocky',
+                name: 'Rocky Linux',
+                basedOn: ['RHEL', 'Fedora'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2021,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#10B981', '#065F46'],
+                shape: 'mountain-ridge'
+            },
+            {
+                id: 'puppy',
+                name: 'Puppy Linux',
+                basedOn: ['Ubuntu', 'Slackware'],
+                init: ['BusyBox', 'SysVinit'],
+                pkg: ['petget', 'apt'],
+                de: ['JWM'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 2003,
+                origin: { ru: 'Австралия', en: 'Australia' },
+                colors: ['#F59E0B', '#B45309'],
+                shape: 'paw-badge'
+            }
+        ];
+
+        /* ============================================================================
+         * 2. PROCEDURAL TRADEMARK-SAFE SVG ICON GENERATOR
+         * Builds clean, abstract geometric vector badges inspired by each distro's
+         * color palette and concept without infringing any official logos.
+         * ============================================================================ */
+        function generateSafeDistroSVG(distro) {
+            const [c1, c2] = distro.colors;
+            const id = `grad_${distro.id}_${Math.random().toString(36).substring(2, 6)}`;
+            let innerShape = '';
+
+            switch (distro.shape) {
+                case 'tri-nodes':
+                    innerShape = `
+                        <circle cx="32" cy="32" r="13" fill="none" stroke="#fff" stroke-width="3.5" stroke-dasharray="18 8"/>
+                        <circle cx="32" cy="12" r="4.5" fill="#fff"/>
+                        <circle cx="15" cy="42" r="4.5" fill="#fff"/>
+                        <circle cx="49" cy="42" r="4.5" fill="#fff"/>`;
+                    break;
+                case 'spiral-arc':
+                    innerShape = `
+                        <path d="M32 14 A18 18 0 1 0 50 32 A12 12 0 1 1 38 20 A6 6 0 1 0 32 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`;
+                    break;
+                case 'peak-triangle':
+                    innerShape = `
+                        <polygon points="32,10 13,50 25,50 32,34 39,50 51,50" fill="#fff"/>
+                        <polygon points="32,20 26,33 38,33" fill="${c2}"/>`;
+                    break;
+                case 'infinity-loop':
+                    innerShape = `
+                        <rect x="16" y="24" width="16" height="16" rx="8" fill="none" stroke="#fff" stroke-width="4"/>
+                        <rect x="30" y="18" width="18" height="18" rx="9" fill="none" stroke="#fff" stroke-width="4"/>`;
+                    break;
+                case 'mint-leaf':
+                    innerShape = `
+                        <path d="M18 46 Q18 18 46 18 Q46 46 18 46 Z" fill="none" stroke="#fff" stroke-width="4"/>
+                        <path d="M24 40 L38 26" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`;
+                    break;
+                case 'three-pillars':
+                    innerShape = `
+                        <rect x="15" y="16" width="8" height="32" rx="3" fill="#fff"/>
+                        <rect x="28" y="16" width="8" height="20" rx="3" fill="#fff"/>
+                        <rect x="41" y="24" width="8" height="24" rx="3" fill="#fff"/>`;
+                    break;
+                case 'gecko-eye':
+                    innerShape = `
+                        <circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="4"/>
+                        <path d="M24 32 Q32 20 40 32 Q32 44 24 32 Z" fill="#fff"/>
+                        <circle cx="32" cy="32" r="3.5" fill="${c2}"/>`;
+                    break;
+                case 'pebble-gem':
+                    innerShape = `
+                        <polygon points="32,12 50,26 42,49 20,49 14,28" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+                        <circle cx="30" cy="29" r="5" fill="#fff"/>`;
+                    break;
+                case 'pipe-monogram':
+                    innerShape = `
+                        <text x="15" y="42" fill="#fff" font-family="monospace" font-weight="bold" font-size="28">S|</text>`;
+                    break;
+                case 'cyber-shield':
+                    innerShape = `
+                        <path d="M32 12 L48 19 V32 C48 43 32 51 32 51 C32 51 16 43 16 32 V19 Z" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <path d="M25 28 L31 34 L40 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`;
+                    break;
+                case 'rocket-excl':
+                    innerShape = `
+                        <text x="14" y="43" fill="#fff" font-family="monospace" font-weight="bold" font-size="28">P!</text>
+                        <line x1="16" y1="48" x2="48" y2="48" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`;
+                    break;
+                case 'orbit-e':
+                    innerShape = `
+                        <circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <path d="M22 33 H42 C42 23 22 23 24 36 C25 42 36 43 40 39" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`;
+                    break;
+                case 'z-hexagon':
+                    innerShape = `
+                        <polygon points="32,11 50,21 50,43 32,53 14,43 14,21" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <polyline points="23,24 41,24 23,40 41,40" fill="none" stroke="#fff" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+                    break;
+                case 'cross-peaks':
+                    innerShape = `
+                        <polygon points="12,46 26,22 40,46" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <polygon points="26,46 40,18 52,46" fill="#fff" fill-opacity="0.85"/>`;
+                    break;
+                case 'sail-prism':
+                    innerShape = `
+                        <polygon points="34,12 16,46 34,42" fill="#fff"/>
+                        <polygon points="36,16 49,46 36,42" fill="#fff" fill-opacity="0.65"/>`;
+                    break;
+                case 'neon-wing':
+                    innerShape = `
+                        <path d="M14 22 H48 L36 32 H44 L24 48 L28 34 H18 Z" fill="#fff"/>`;
+                    break;
+                case 'snowflake-hex':
+                    innerShape = `
+                        <g stroke="#fff" stroke-width="3.5" stroke-linecap="round">
+                            <line x1="32" y1="12" x2="32" y2="52"/>
+                            <line x1="15" y1="22" x2="49" y2="42"/>
+                            <line x1="15" y1="42" x2="49" y2="22"/>
+                        </g>
+                        <circle cx="32" cy="32" r="6" fill="${c1}" stroke="#fff" stroke-width="3"/>`;
+                    break;
+                case 'void-eclipse':
+                    innerShape = `
+                        <path d="M18 24 A16 16 0 0 1 46 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M46 40 A16 16 0 0 1 18 40" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="32" cy="32" r="5" fill="#fff"/>`;
+                    break;
+                case 'twin-alps':
+                    innerShape = `
+                        <polyline points="10,45 25,18 35,36 43,24 54,45" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+                    break;
+                case 'split-delta':
+                    innerShape = `
+                        <polygon points="32,12 15,48 28,44" fill="#fff"/>
+                        <polygon points="32,22 49,48 34,44" fill="#fff" fill-opacity="0.75"/>`;
+                    break;
+                case 'comet-arc':
+                    innerShape = `
+                        <path d="M16 46 Q48 34 44 16 Q32 28 16 46 Z" fill="#fff"/>`;
+                    break;
+                case 'sailboat-crest':
+                    innerShape = `
+                        <polygon points="31,14 17,38 31,38" fill="#fff"/>
+                        <polygon points="34,20 46,38 34,38" fill="#fff" fill-opacity="0.7"/>
+                        <path d="M15 42 H49 L44 49 H20 Z" fill="#fff"/>`;
+                    break;
+                case 'gamepad-crest':
+                    innerShape = `
+                        <rect x="14" y="22" width="36" height="22" rx="11" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <path d="M21 33 H27 M24 30 V36" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="40" cy="31" r="2.2" fill="#fff"/>
+                        <circle cx="36" cy="36" r="2.2" fill="#fff"/>`;
+                    break;
+                case 'lightning-hex':
+                    innerShape = `
+                        <polygon points="35,12 19,34 31,34 27,52 45,29 33,29" fill="#fff"/>`;
+                    break;
+                case 'crystal-cube':
+                    innerShape = `
+                        <polygon points="32,12 49,22 49,42 32,52 15,42 15,22" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <polyline points="15,22 32,32 49,22" fill="none" stroke="#fff" stroke-width="3"/>
+                        <line x1="32" y1="32" x2="32" y2="52" stroke="#fff" stroke-width="3"/>`;
+                    break;
+                case 'incognito-plug':
+                    innerShape = `
+                        <rect x="22" y="20" width="20" height="26" rx="4" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <line x1="27" y1="13" x2="27" y2="20" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="37" y1="13" x2="37" y2="20" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="32" cy="33" r="3.5" fill="#fff"/>`;
+                    break;
+                case 'iso-cubes':
+                    innerShape = `
+                        <rect x="16" y="16" width="13" height="13" rx="2.5" fill="#fff"/>
+                        <rect x="35" y="16" width="13" height="13" rx="2.5" fill="#fff" fill-opacity="0.7"/>
+                        <rect x="25" y="34" width="14" height="14" rx="2.5" fill="#fff" fill-opacity="0.9"/>`;
+                    break;
+                case 'brim-crown':
+                    innerShape = `
+                        <path d="M18 36 L22 22 L32 27 L42 22 L46 36 Z" fill="#fff"/>
+                        <ellipse cx="32" cy="39" rx="20" ry="4.5" fill="#fff"/>`;
+                    break;
+                case 'mountain-ridge':
+                    innerShape = `
+                        <polygon points="12,46 28,18 42,46" fill="#fff"/>
+                        <polygon points="28,46 40,26 52,46" fill="#fff" fill-opacity="0.65"/>`;
+                    break;
+                default: // paw-badge
+                    innerShape = `
+                        <ellipse cx="32" cy="38" rx="9" ry="7" fill="#fff"/>
+                        <circle cx="20" cy="27" r="3.5" fill="#fff"/>
+                        <circle cx="28" cy="22" r="3.5" fill="#fff"/>
+                        <circle cx="36" cy="22" r="3.5" fill="#fff"/>
+                        <circle cx="44" cy="27" r="3.5" fill="#fff"/>`;
+            }
+
+            return `
+                <svg viewBox="0 0 64 64" class="w-full h-full select-none drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="${c1}" />
+                            <stop offset="100%" stop-color="${c2}" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#${id})" />
+                    ${innerShape}
+                </svg>
+            `;
+        }
+
+        /* ============================================================================
+         * 3. LOCALIZATION DICTIONARY (RU / EN)
+         * ============================================================================ */
+        const I18N = {
+            ru: {
+                subtitle: 'Угадай Linux дистрибутив по параметрам',
+                modeDaily: 'Задание дня',
+                modeEndless: 'Бесконечный',
+                newGameBtn: 'Заново',
+                legendExact: 'Точно',
+                legendPartial: 'Частично / Близко (±3 г.)',
+                legendWrong: 'Неверно',
+                attempts: 'Попыток',
+                trademarkNotice: 'Абстрактные геом. эмблемы (Parody SVG)',
+                winTitle: 'Дистрибутив разгадан!',
+                loseTitle: 'Игра окончена! Загаданный дистрибутив:',
+                winDesc: (name, tries) => `Это ${name}! Понадобилось попыток: ${tries}.`,
+                loseDesc: (name) => `Правильный ответ: ${name}. Попробуйте ещё раз в бесконечном режиме!`,
+                nextDailyIn: 'Следующий дистрибутив дня через:',
+                shareBtn: 'Поделиться',
+                nextDistroBtn: 'Следующий',
+                copiedToast: 'Результат скопирован в буфер обмена!',
+                emptyTitle: 'Пока нет ни одной попытки',
+                emptySub: 'Выберите любой дистрибутив из списка ниже или начните вводить его название в поле поиска, чтобы сделать первый ход.',
+                searchPlaceholder: 'Поиск по названию, базе (Arch, Debian), пакетному менеджеру или DE...',
+                columns: [
+                    'Дистрибутив',
+                    'Основан на',
+                    'Инит (Init)',
+                    'Пакеты',
+                    'DE по умолч.',
+                    'Модель релиза',
+                    'Архитектура',
+                    'Год выхода'
+                ],
+                values: {
+                    'Independent': 'Независимый',
+                    'Fixed': 'Фикс. (Point)',
+                    'Rolling': 'Роллинг (Rolling)',
+                    'Hybrid': 'Гибридный',
+                    'None (DIY)': 'Нет (DIY)'
+                },
+                tabRules: 'Правила игры',
+                tabAbout: 'О проекте / Vibe Code',
+                modalTitle: 'Справка и О проекте',
+                legalFooter: 'Неофициальный проект (@vroderoot). Названия дистрибутивов приведены исключительно в справочно-игровых целях (Nominative Fair Use). Официальные логотипы не используются (все эмблемы — процедурная геометрия). Проект не аффилирован с Linux Foundation, Canonical, Red Hat, SPI или иными правообладателями.',
+                modalHtml: `
+                    <p><strong>Distrodle</strong> — ежедневная игра-головоломка для любителей Linux и Open Source.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong class="text-emerald-500">Зелёный цвет:</strong> Полное совпадение параметра с загаданным дистрибутивом.</li>
+                        <li><strong class="text-amber-500">Жёлтый/Оранжевый цвет:</strong> Частичное совпадение (например, совпадает один из нескольких пакетных менеджеров или DE, либо год выпуска отличается не более чем на 3 года).</li>
+                        <li><strong class="text-rose-500">Красный цвет:</strong> Нет совпадений. В колонке «Год выхода» стрелка подскажет, вышел ли загаданный дистрибутив раньше (↓) или позже (↑).</li>
+                    </ul>
+                    <div class="pt-2 border-t border-md-outlineVariant text-xs space-y-1">
+                        <p><strong>Юридическая чистота (Trademark & Copyright Safe):</strong></p>
+                        <p>1. Все иконки генерируются кодом из базовых геометрических фигур (круги, линии, треугольники). Зарегистрированные графические логотипы не используются.</p>
+                        <p>2. Названия ОС и их технические характеристики являются общедоступными фактами и используются добросовестно (<em>Nominative Fair Use</em>) только для идентификации объектов викторины без коммерческого введения в заблуждение.</p>
+                    </div>
+                `,
+                aboutHtml: `
+                    <div class="p-4 rounded-2xl bg-md-primaryContainer/40 border border-md-primary/30 space-y-2">
+                        <div class="flex items-center gap-2 text-md-primary font-bold text-base">
+                            <span class="material-symbols-outlined">bolt</span>
+                            <span>100% Vibe Code Project</span>
+                        </div>
+                        <p class="text-xs sm:text-sm leading-relaxed">
+                            Этот проект создан на <strong>100% методом вайб-кодинга (Vibe Code)</strong> с использованием языковой модели <strong>Gemini Argon</strong> — без ручного написания бойлерплейта, от архитектуры до процедурной SVG-графики и адаптивного дизайна Material Design 3.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                        <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50">
+                            <div class="text-[11px] uppercase tracking-wider opacity-75 font-mono">Автор проекта</div>
+                            <div class="text-base font-bold font-mono text-md-onSurface mt-0.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[18px] text-md-primary">terminal</span>
+                                <span>vroderoot</span>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50">
+                            <div class="text-[11px] uppercase tracking-wider opacity-75 font-mono">AI Модель / Движок</div>
+                            <div class="text-base font-bold font-mono text-md-onSurface mt-0.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[18px] text-md-primary">auto_awesome</span>
+                                <span>Gemini Argon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 space-y-2">
+                        <div class="text-xs font-bold text-md-onSurface">Соцсети автора (@vroderoot):</div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
+                                <span>TikTok @vroderoot</span>
+                            </a>
+                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                <span>YouTube @vroderoot</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 text-xs space-y-1">
+                        <div class="font-bold text-md-onSurface">Стек и особенности:</div>
+                        <p>• Дизайн-система: Material Design 3 (Tonal Palette, Dark/Light адаптация)</p>
+                        <p>• Графика: Процедурный генератор пародийных векторных иконок (Trademark-Safe SVG)</p>
+                        <p>• SEO Ready: Полный набор метаданных для индексации Google, OpenGraph и JSON-LD Schema.org</p>
+                    </div>
+                `
+            },
+            en: {
+                subtitle: 'Guess the Linux distribution by its specs',
+                modeDaily: 'Daily Challenge',
+                modeEndless: 'Endless Mode',
+                newGameBtn: 'New Distro',
+                legendExact: 'Exact Match',
+                legendPartial: 'Partial / Close (±3 yr)',
+                legendWrong: 'No Match',
+                attempts: 'Attempts',
+                trademarkNotice: 'Trademark-Safe Geometric Parody Icons',
+                winTitle: 'Distro Cracked!',
+                loseTitle: 'Game Over! Target distro was:',
+                winDesc: (name, tries) => `It was ${name}! Solved in ${tries} tries.`,
+                loseDesc: (name) => `The secret distro was ${name}. Try another round!`,
+                nextDailyIn: 'Next Daily Distro in:',
+                shareBtn: 'Share Result',
+                nextDistroBtn: 'Next Distro',
+                copiedToast: 'Result copied to clipboard!',
+                emptyTitle: 'No guesses yet',
+                emptySub: 'Pick any distribution from the catalog below or type in the search bar to make your first guess.',
+                searchPlaceholder: 'Search by name, base (Arch, Debian), package manager, or DE...',
+                columns: [
+                    'Distro',
+                    'Based On',
+                    'Init System',
+                    'Pkg Manager',
+                    'Default DE',
+                    'Release Model',
+                    'Architecture',
+                    'Release Year'
+                ],
+                values: {
+                    'Independent': 'Independent',
+                    'Fixed': 'Fixed (Point)',
+                    'Rolling': 'Rolling',
+                    'Hybrid': 'Hybrid',
+                    'None (DIY)': 'None (DIY)'
+                },
+                tabRules: 'How to Play',
+                tabAbout: 'About / Vibe Code',
+                modalTitle: 'Help & Project Credits',
+                legalFooter: 'Unofficial fan trivia project (@vroderoot). Distribution names are used strictly for identification and trivia purposes under Nominative Fair Use. No official logos are used (all icons are procedural geometry). Not affiliated with or endorsed by The Linux Foundation, Canonical, Red Hat, SPI, or any respective trademark owners.',
+                modalHtml: `
+                    <p><strong>Distrodle</strong> is a daily deduction trivia game for Linux enthusiasts.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong class="text-emerald-500">Green tile:</strong> Exact match with the mystery distribution.</li>
+                        <li><strong class="text-amber-500">Amber tile:</strong> Partial match (shares at least one item in Based On, Init, Package Manager, DE, or Architecture, or the release year is within ±3 years).</li>
+                        <li><strong class="text-rose-500">Red tile:</strong> No overlap. For Release Year, an arrow indicates whether the target distro is older (↓) or newer (↑).</li>
+                    </ul>
+                    <div class="pt-2 border-t border-md-outlineVariant text-xs space-y-1">
+                        <p><strong>Legal & Trademark Notice:</strong></p>
+                        <p>1. All emblems are procedurally generated geometric SVG shapes. No copyrighted or trademarked logos are used.</p>
+                        <p>2. OS names and technical specifications are factual data used strictly for identification under <em>Nominative Fair Use</em>. This project is non-affiliated with any OS vendor.</p>
+                    </div>
+                `,
+                aboutHtml: `
+                    <div class="p-4 rounded-2xl bg-md-primaryContainer/40 border border-md-primary/30 space-y-2">
+                        <div class="flex items-center gap-2 text-md-primary font-bold text-base">
+                            <span class="material-symbols-outlined">bolt</span>
+                            <span>100% Vibe Code Project</span>
+                        </div>
+                        <p class="text-xs sm:text-sm leading-relaxed">
+                            This web app was crafted with <strong>100% Vibe Coding</strong> powered by <strong>Gemini Argon</strong> — from the game logic and deterministic daily seed to the trademark-safe procedural SVG icons and Material Design 3 mobile UI.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                        <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50">
+                            <div class="text-[11px] uppercase tracking-wider opacity-75 font-mono">Project Author</div>
+                            <div class="text-base font-bold font-mono text-md-onSurface mt-0.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[18px] text-md-primary">terminal</span>
+                                <span>vroderoot</span>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50">
+                            <div class="text-[11px] uppercase tracking-wider opacity-75 font-mono">AI Model / Engine</div>
+                            <div class="text-base font-bold font-mono text-md-onSurface mt-0.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[18px] text-md-primary">auto_awesome</span>
+                                <span>Gemini Argon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 space-y-2">
+                        <div class="text-xs font-bold text-md-onSurface">Author's Socials (@vroderoot):</div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
+                                <span>TikTok @vroderoot</span>
+                            </a>
+                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                <span>YouTube @vroderoot</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 text-xs space-y-1">
+                        <div class="font-bold text-md-onSurface">Tech Highlights:</div>
+                        <p>• Design System: Material Design 3 (Tonal Palette, Dark/Light themes)</p>
+                        <p>• Artwork: Procedural Trademark-Safe Geometric SVG Generator</p>
+                        <p>• SEO Ready: Full Google Search metadata, OpenGraph & Schema.org JSON-LD</p>
+                    </div>
+                `
+            }
+        };
+
+        /* ============================================================================
+         * 4. GAME STATE & DATE-BASED DETERMINISTIC SEEDING
+         * ============================================================================ */
+        let state = {
+            lang: localStorage.getItem('distrodle_lang') || 'ru',
+            theme: localStorage.getItem('distrodle_theme') || 'dark',
+            mode: 'daily', // 'daily' | 'endless'
+            modalTab: 'rules', // 'rules' | 'about'
+            listCollapsed: false,
+            sheetExpanded: false,
+            quickFilter: '',
+            daily: {
+                dateKey: '',
+                dayNumber: 1,
+                targetId: '',
+                guesses: [], // array of distro IDs
+                won: false,
+                surrendered: false
+            },
+            endless: {
+                targetId: '',
+                guesses: [],
+                won: false,
+                surrendered: false
+            }
+        };
+
+        // Mulberry32 deterministic PRNG for Daily Mode
+        function mulberry32(a) {
+            return function() {
+                let t = a += 0x6D2B79F5;
+                t = Math.imul(t ^ t >>> 15, t | 1);
+                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            }
+        }
+
+        function getTodayInfo() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const dateKey = `${year}-${month}-${day}`;
+
+            // Epoch start for day counter
+            const epoch = new Date(2025, 0, 1);
+            const todayMidnight = new Date(year, now.getMonth(), now.getDate());
+            const diffDays = Math.max(1, Math.floor((todayMidnight - epoch) / 86400000) + 1);
+
+            // Seed from YYYYMMDD integer
+            const numericSeed = year * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+            const rand = mulberry32(numericSeed)();
+            const index = Math.floor(rand * DISTROS.length);
+
+            return {
+                dateKey,
+                dayNumber: diffDays,
+                targetId: DISTROS[index].id
+            };
+        }
+
+        function initGameState() {
+            // Apply saved theme
+            if (state.theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Initialize Daily State
+            const today = getTodayInfo();
+            const savedDailyRaw = localStorage.getItem('distrodle_daily_v1');
+            if (savedDailyRaw) {
+                try {
+                    const parsed = JSON.parse(savedDailyRaw);
+                    if (parsed.dateKey === today.dateKey) {
+                        state.daily = parsed;
+                        // Ensure target matches deterministic calculation
+                        state.daily.targetId = today.targetId;
+                        state.daily.dayNumber = today.dayNumber;
+                    } else {
+                        resetDailyToToday(today);
+                    }
+                } catch (e) {
+                    resetDailyToToday(today);
+                }
+            } else {
+                resetDailyToToday(today);
+            }
+
+            // Initialize Endless State
+            const savedEndlessRaw = localStorage.getItem('distrodle_endless_v1');
+            if (savedEndlessRaw) {
+                try {
+                    state.endless = JSON.parse(savedEndlessRaw);
+                    if (!getDistroById(state.endless.targetId)) {
+                        pickRandomEndlessTarget();
+                    }
+                } catch (e) {
+                    pickRandomEndlessTarget();
+                }
+            } else {
+                pickRandomEndlessTarget();
+            }
+        }
+
+        function resetDailyToToday(today) {
+            state.daily = {
+                dateKey: today.dateKey,
+                dayNumber: today.dayNumber,
+                targetId: today.targetId,
+                guesses: [],
+                won: false,
+                surrendered: false
+            };
+            saveState();
+        }
+
+        function pickRandomEndlessTarget(excludeId = null) {
+            const pool = DISTROS.filter(d => d.id !== excludeId);
+            const chosen = pool[Math.floor(Math.random() * pool.length)];
+            state.endless = {
+                targetId: chosen.id,
+                guesses: [],
+                won: false,
+                surrendered: false
+            };
+            saveState();
+        }
+
+        function saveState() {
+            localStorage.setItem('distrodle_daily_v1', JSON.stringify(state.daily));
+            localStorage.setItem('distrodle_endless_v1', JSON.stringify(state.endless));
+            localStorage.setItem('distrodle_lang', state.lang);
+            localStorage.setItem('distrodle_theme', state.theme);
+        }
+
+        function getActiveSession() {
+            return state.mode === 'daily' ? state.daily : state.endless;
+        }
+
+        function getDistroById(id) {
+            return DISTROS.find(d => d.id === id);
+        }
+
+        /* ============================================================================
+         * 5. COMPARISON ENGINE (EXACT / PARTIAL / WRONG)
+         * ============================================================================ */
+        function compareArrays(guessArr, targetArr) {
+            const normG = guessArr.map(s => s.toLowerCase());
+            const normT = targetArr.map(s => s.toLowerCase());
+
+            const exact = normG.length === normT.length && normG.every(val => normT.includes(val));
+            if (exact) return 'exact';
+
+            const hasOverlap = normG.some(val => normT.includes(val));
+            if (hasOverlap) return 'partial';
+
+            return 'wrong';
+        }
+
+        function evaluateGuess(guessDistro, targetDistro) {
+            // Year evaluation
+            const yearDiff = Math.abs(guessDistro.year - targetDistro.year);
+            let yearStatus = 'wrong';
+            if (yearDiff === 0) yearStatus = 'exact';
+            else if (yearDiff <= 3) yearStatus = 'partial';
+
+            let yearDir = '';
+            if (guessDistro.year < targetDistro.year) yearDir = '↑'; // Target is newer
+            else if (guessDistro.year > targetDistro.year) yearDir = '↓'; // Target is older
+
+            // Release Model evaluation
+            let modelStatus = 'wrong';
+            if (guessDistro.releaseModel === targetDistro.releaseModel) {
+                modelStatus = 'exact';
+            } else if (guessDistro.releaseModel === 'Hybrid' || targetDistro.releaseModel === 'Hybrid') {
+                modelStatus = 'partial';
+            }
+
+            return {
+                distro: guessDistro,
+                isCorrect: guessDistro.id === targetDistro.id,
+                basedOn: compareArrays(guessDistro.basedOn, targetDistro.basedOn),
+                init: compareArrays(guessDistro.init, targetDistro.init),
+                pkg: compareArrays(guessDistro.pkg, targetDistro.pkg),
+                de: compareArrays(guessDistro.de, targetDistro.de),
+                releaseModel: modelStatus,
+                arch: compareArrays(guessDistro.arch, targetDistro.arch),
+                year: {
+                    status: yearStatus,
+                    dir: yearDir,
+                    value: guessDistro.year
+                }
+            };
+        }
+
+        function translateValue(val) {
+            const dict = I18N[state.lang].values;
+            return dict[val] || val;
+        }
+
+        function formatArrayValues(arr) {
+            return arr.map(v => translateValue(v)).join(', ');
+        }
+
+        /* ============================================================================
+         * 6. UI RENDERING & INTERACTION
+         * ============================================================================ */
+        function getStatusColorClasses(status) {
+            switch (status) {
+                case 'exact':
+                    return 'bg-emerald-600/95 text-white border-emerald-400/40 shadow-sm';
+                case 'partial':
+                    return 'bg-amber-600/95 text-white border-amber-400/40 shadow-sm';
+                default:
+                    return 'bg-rose-800/90 text-rose-50 border-rose-500/30 shadow-sm';
+            }
+        }
+
+        function renderGuessRow(evaluation, animate = false) {
+            const d = evaluation.distro;
+            const animClass = animate ? 'cell-reveal' : '';
+            const cols = I18N[state.lang].columns;
+
+            // 1. Desktop Row (Visible on lg+ screens)
+            const desktopCells = [
+                `<div class="p-2 rounded-2xl bg-md-surfaceContainerHigh border border-md-outlineVariant flex items-center gap-2.5 text-left ${animClass}" style="animation-delay: 0ms">
+                    <div class="w-10 h-10 shrink-0">${generateSafeDistroSVG(d)}</div>
+                    <div class="min-w-0">
+                        <div class="font-bold text-xs sm:text-sm truncate leading-tight">${d.name}</div>
+                        <div class="text-[10px] text-md-onSurfaceVariant truncate">${d.origin[state.lang]}</div>
+                    </div>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-xs font-medium leading-snug ${getStatusColorClasses(evaluation.basedOn)} ${animClass}" style="animation-delay: 60ms">
+                    <span>${formatArrayValues(d.basedOn)}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-xs font-mono font-medium leading-snug ${getStatusColorClasses(evaluation.init)} ${animClass}" style="animation-delay: 120ms">
+                    <span>${formatArrayValues(d.init)}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-xs font-mono font-medium leading-snug ${getStatusColorClasses(evaluation.pkg)} ${animClass}" style="animation-delay: 180ms">
+                    <span>${formatArrayValues(d.pkg)}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-xs font-medium leading-snug ${getStatusColorClasses(evaluation.de)} ${animClass}" style="animation-delay: 240ms">
+                    <span>${formatArrayValues(d.de)}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-xs font-medium leading-snug ${getStatusColorClasses(evaluation.releaseModel)} ${animClass}" style="animation-delay: 300ms">
+                    <span>${translateValue(d.releaseModel)}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-[11px] font-mono font-medium leading-snug ${getStatusColorClasses(evaluation.arch)} ${animClass}" style="animation-delay: 360ms">
+                    <span>${d.arch.join(', ')}</span>
+                </div>`,
+                `<div class="p-2 rounded-2xl border flex items-center justify-center text-center text-sm font-mono font-bold gap-1 ${getStatusColorClasses(evaluation.year.status)} ${animClass}" style="animation-delay: 420ms">
+                    <span>${d.year}</span>
+                    ${evaluation.year.dir ? `<span class="text-base leading-none">${evaluation.year.dir}</span>` : ''}
+                </div>`
+            ];
+
+            // 2. Mobile & Tablet Card (Visible on <lg screens, eliminates horizontal scroll!)
+            const mobileSpecs = [
+                { label: cols[1], val: formatArrayValues(d.basedOn), status: evaluation.basedOn, delay: 40 },
+                { label: cols[2], val: formatArrayValues(d.init), status: evaluation.init, delay: 80, mono: true },
+                { label: cols[3], val: formatArrayValues(d.pkg), status: evaluation.pkg, delay: 120, mono: true },
+                { label: cols[4], val: formatArrayValues(d.de), status: evaluation.de, delay: 160 },
+                { label: cols[5], val: translateValue(d.releaseModel), status: evaluation.releaseModel, delay: 200 },
+                { label: cols[6], val: d.arch.join(', '), status: evaluation.arch, delay: 240, mono: true },
+            ];
+
+            const mobileGridItems = mobileSpecs.map(spec => `
+                <div class="px-2.5 py-1.5 rounded-xl border flex flex-col justify-center ${getStatusColorClasses(spec.status)} ${animClass}" style="animation-delay: ${spec.delay}ms">
+                    <span class="text-[9px] uppercase tracking-wider opacity-80 font-bold leading-tight">${spec.label}</span>
+                    <span class="text-xs font-semibold leading-snug truncate ${spec.mono ? 'font-mono' : ''}">${spec.val}</span>
+                </div>
+            `).join('');
+
+            const mobileCard = `
+                <div class="lg:hidden rounded-3xl p-2.5 bg-md-surfaceContainerHigh border border-md-outlineVariant/70 shadow-sm flex flex-col gap-2">
+                    <!-- Top Header inside Mobile Card: Distro Info + Year Badge -->
+                    <div class="flex items-center justify-between gap-2 px-1">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <div class="w-10 h-10 shrink-0">${generateSafeDistroSVG(d)}</div>
+                            <div class="min-w-0">
+                                <div class="font-bold text-sm truncate leading-tight">${d.name}</div>
+                                <div class="text-[11px] text-md-onSurfaceVariant truncate">${d.origin[state.lang]}</div>
+                            </div>
+                        </div>
+                        <div class="px-3 py-1.5 rounded-2xl border flex flex-col items-center justify-center shrink-0 ${getStatusColorClasses(evaluation.year.status)} ${animClass}" style="animation-delay: 280ms">
+                            <span class="text-[9px] uppercase tracking-wider opacity-80 font-bold leading-none">${cols[7]}</span>
+                            <div class="text-xs font-mono font-bold flex items-center gap-0.5 mt-0.5 leading-none">
+                                <span>${d.year}</span>
+                                ${evaluation.year.dir ? `<span class="text-sm">${evaluation.year.dir}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2-Column Compact Parameter Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                        ${mobileGridItems}
+                    </div>
+                </div>
+            `;
+
+            const wrapperEl = document.createElement('div');
+            wrapperEl.innerHTML = `
+                <div class="hidden lg:grid grid-cols-8 gap-2 items-stretch">
+                    ${desktopCells.join('')}
+                </div>
+                ${mobileCard}
+            `;
+            return wrapperEl;
+        }
+
+        function renderAllUI(animateLatest = false) {
+            const t = I18N[state.lang];
+            const session = getActiveSession();
+            const targetDistro = getDistroById(session.targetId);
+
+            // Header Texts
+            document.getElementById('subtitleText').textContent = t.subtitle;
+            document.getElementById('modeDailyLabel').textContent = t.modeDaily;
+            document.getElementById('modeEndlessLabel').textContent = t.modeEndless;
+            document.getElementById('newGameBtnText').textContent = t.newGameBtn;
+            document.getElementById('legendExact').textContent = t.legendExact;
+            document.getElementById('legendPartial').textContent = t.legendPartial;
+            document.getElementById('legendWrong').textContent = t.legendWrong;
+            document.getElementById('trademarkNotice').textContent = t.trademarkNotice;
+            document.getElementById('emptyStateTitle').textContent = t.emptyTitle;
+            document.getElementById('emptyStateSub').textContent = t.emptySub;
+            document.getElementById('distroSearchInput').placeholder = t.searchPlaceholder;
+            document.getElementById('langBadge').textContent = state.lang.toUpperCase();
+            document.getElementById('themeIcon').textContent = state.theme === 'dark' ? 'light_mode' : 'dark_mode';
+            document.getElementById('legalFooterText').textContent = t.legalFooter;
+
+            // Modal Texts & Tabs
+            document.querySelector('#modalTitle span:last-child').textContent = t.modalTitle;
+            document.getElementById('tabRulesLabel').textContent = t.tabRules;
+            document.getElementById('tabAboutLabel').textContent = t.tabAbout;
+            document.getElementById('modalBody').innerHTML = t.modalHtml;
+            document.getElementById('modalAboutBody').innerHTML = t.aboutHtml;
+            switchModalTab(state.modalTab);
+
+            // Badge & Segmented Buttons active styles
+            const dailyBadge = document.getElementById('dailyBadge');
+            const dailyBtn = document.getElementById('modeDailyBtn');
+            const endlessBtn = document.getElementById('modeEndlessBtn');
+            const newEndlessBtn = document.getElementById('newEndlessBtn');
+            const giveUpBtn = document.getElementById('giveUpBtn');
+
+            if (state.mode === 'daily') {
+                dailyBadge.textContent = `#${state.daily.dayNumber}`;
+                dailyBadge.classList.remove('hidden');
+                dailyBtn.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-md-secondaryContainer text-md-onSecondaryContainer shadow-sm';
+                endlessBtn.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all text-md-onSurfaceVariant hover:text-md-onSurface';
+                newEndlessBtn.classList.add('hidden');
+                newEndlessBtn.classList.remove('flex');
+                giveUpBtn.classList.add('hidden');
+                giveUpBtn.classList.remove('flex');
+            } else {
+                dailyBadge.textContent = '∞';
+                dailyBtn.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all text-md-onSurfaceVariant hover:text-md-onSurface';
+                endlessBtn.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-md-secondaryContainer text-md-onSecondaryContainer shadow-sm';
+                newEndlessBtn.classList.remove('hidden');
+                newEndlessBtn.classList.add('flex');
+                if (!session.won && !session.surrendered && session.guesses.length > 0) {
+                    giveUpBtn.classList.remove('hidden');
+                    giveUpBtn.classList.add('flex');
+                } else {
+                    giveUpBtn.classList.add('hidden');
+                    giveUpBtn.classList.remove('flex');
+                }
+            }
+
+            // Attempts Counter
+            document.getElementById('attemptsCounter').textContent = `${t.attempts}: ${session.guesses.length}`;
+
+            // Render Table Column Headers
+            const headerRow = document.getElementById('tableHeaderRow');
+            headerRow.innerHTML = t.columns.map(col => `<div class="px-1">${col}</div>`).join('');
+
+            // Render Guesses Matrix (newest guess on top for convenient mobile viewing)
+            const guessesContainer = document.getElementById('guessesContainer');
+            const emptyStateBox = document.getElementById('emptyStateBox');
+            guessesContainer.innerHTML = '';
+
+            if (session.guesses.length === 0) {
+                emptyStateBox.classList.remove('hidden');
+            } else {
+                emptyStateBox.classList.add('hidden');
+                const reversedGuesses = [...session.guesses].reverse();
+                reversedGuesses.forEach((gId, idx) => {
+                    const gDistro = getDistroById(gId);
+                    if (!gDistro) return;
+                    const evalData = evaluateGuess(gDistro, targetDistro);
+                    const shouldAnimate = animateLatest && idx === 0;
+                    guessesContainer.appendChild(renderGuessRow(evalData, shouldAnimate));
+                });
+            }
+
+            // Win / Lose Banner
+            const winBanner = document.getElementById('winBanner');
+            if (session.won || session.surrendered) {
+                winBanner.classList.remove('hidden');
+                document.getElementById('winLogoContainer').innerHTML = generateSafeDistroSVG(targetDistro);
+                document.getElementById('winTitle').textContent = session.won ? t.winTitle : t.loseTitle;
+                document.getElementById('winDesc').textContent = session.won 
+                    ? t.winDesc(targetDistro.name, session.guesses.length)
+                    : t.loseDesc(targetDistro.name);
+                document.getElementById('shareBtnText').textContent = t.shareBtn;
+                document.getElementById('nextDistroBtnText').textContent = t.nextDistroBtn;
+
+                const nextBtn = document.getElementById('winNextEndlessBtn');
+                const countdownEl = document.getElementById('dailyCountdown');
+                if (state.mode === 'daily') {
+                    nextBtn.classList.add('hidden');
+                    countdownEl.classList.remove('hidden');
+                    updateDailyCountdownText();
+                } else {
+                    nextBtn.classList.remove('hidden');
+                    countdownEl.classList.add('hidden');
+                }
+            } else {
+                winBanner.classList.add('hidden');
+            }
+
+            // Render Bottom Filterable Distro List
+            renderDistroCatalog();
+        }
+
+        function renderDistroCatalog() {
+            const session = getActiveSession();
+            const query = document.getElementById('distroSearchInput').value.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            
+            if (query.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            // Filter distros not yet guessed, matching search query & quick filter chip
+            const available = DISTROS.filter(d => {
+                if (session.guesses.includes(d.id)) return false;
+                const haystack = [
+                    d.name,
+                    ...d.basedOn,
+                    ...d.init,
+                    ...d.pkg,
+                    ...d.de,
+                    d.releaseModel,
+                    String(d.year),
+                    d.origin.ru,
+                    d.origin.en
+                ].join(' ').toLowerCase();
+
+                if (state.quickFilter && !haystack.includes(state.quickFilter.toLowerCase())) {
+                    return false;
+                }
+                if (!query) return true;
+                return haystack.includes(query);
+            });
+
+            document.getElementById('availableCountBadge').textContent = available.length;
+
+            const grid = document.getElementById('distroCatalogGrid');
+            grid.innerHTML = '';
+
+            const gameFinished = session.won || session.surrendered;
+
+            if (available.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-4 text-center text-xs text-md-onSurfaceVariant">
+                        ${state.lang === 'ru' ? 'Дистрибутивы не найдены' : 'No matching distributions found'}
+                    </div>
+                `;
+                return;
+            }
+
+            available.forEach(d => {
+                const btn = document.createElement('button');
+                btn.disabled = gameFinished;
+                btn.onclick = () => submitGuess(d.id);
+                btn.className = `group flex items-center gap-2.5 sm:gap-3 p-2 rounded-2xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer border border-md-outlineVariant/50 transition text-left ${gameFinished ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer active:scale-[0.98]'}`;
+                
+                btn.innerHTML = `
+                    <div class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 transition-transform group-hover:scale-105">
+                        ${generateSafeDistroSVG(d)}
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <div class="font-bold text-xs sm:text-sm truncate">${d.name}</div>
+                        <div class="text-[10px] sm:text-[11px] opacity-75 truncate font-mono">
+                            ${translateValue(d.basedOn[0])} • ${d.pkg[0]} • ${d.year}
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-[18px] opacity-40 group-hover:opacity-100 mr-1">arrow_upward</span>
+                `;
+                grid.appendChild(btn);
+            });
+        }
+
+        /* ============================================================================
+         * 7. USER ACTIONS & EVENT HANDLERS
+         * ============================================================================ */
+        function submitGuess(distroId) {
+            const session = getActiveSession();
+            if (session.won || session.surrendered) return;
+            if (session.guesses.includes(distroId)) return;
+
+            session.guesses.push(distroId);
+            if (distroId === session.targetId) {
+                session.won = true;
+            }
+
+            saveState();
+
+            // Clear search box for fast consecutive guessing
+            const input = document.getElementById('distroSearchInput');
+            input.value = '';
+            // If sheet was expanded to full screen on mobile, return it to normal height so user sees the result
+            if (state.sheetExpanded) {
+                toggleExpandSheet();
+            }
+            renderAllUI(true);
+        }
+
+        function switchMode(newMode) {
+            if (state.mode === newMode) return;
+            state.mode = newMode;
+            renderAllUI(false);
+        }
+
+        function startNewEndlessGame() {
+            pickRandomEndlessTarget(state.endless.targetId);
+            state.mode = 'endless';
+            renderAllUI(false);
+        }
+
+        function surrenderGame() {
+            if (state.mode !== 'endless') return;
+            state.endless.surrendered = true;
+            saveState();
+            renderAllUI(false);
+        }
+
+        function toggleLanguage() {
+            state.lang = state.lang === 'ru' ? 'en' : 'ru';
+            saveState();
+            renderAllUI(false);
+        }
+
+        function toggleTheme() {
+            state.theme = state.theme === 'dark' ? 'light' : 'dark';
+            if (state.theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            saveState();
+            renderAllUI(false);
+        }
+
+        function toggleHelpModal(show) {
+            const modal = document.getElementById('helpModal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function openModalWithTab(tabName) {
+            switchModalTab(tabName);
+            toggleHelpModal(true);
+        }
+
+        function switchModalTab(tabName) {
+            state.modalTab = tabName;
+            const rulesBody = document.getElementById('modalBody');
+            const aboutBody = document.getElementById('modalAboutBody');
+            const rulesBtn = document.getElementById('tabRulesBtn');
+            const aboutBtn = document.getElementById('tabAboutBtn');
+
+            if (tabName === 'about') {
+                rulesBody.classList.add('hidden');
+                aboutBody.classList.remove('hidden');
+                aboutBtn.className = 'flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all bg-md-primary text-md-onPrimary shadow-sm';
+                rulesBtn.className = 'flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all text-md-onSurfaceVariant hover:text-md-onSurface';
+            } else {
+                aboutBody.classList.add('hidden');
+                rulesBody.classList.remove('hidden');
+                rulesBtn.className = 'flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all bg-md-primary text-md-onPrimary shadow-sm';
+                aboutBtn.className = 'flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-xs sm:text-sm font-medium transition-all text-md-onSurfaceVariant hover:text-md-onSurface';
+            }
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('distroSearchInput');
+            input.value = '';
+            input.focus();
+            renderDistroCatalog();
+        }
+
+        function setQuickFilter(filterVal) {
+            state.quickFilter = filterVal;
+            if (state.listCollapsed) toggleBottomList();
+
+            // Update active visual style on quick filter chips
+            document.querySelectorAll('.qchip').forEach(btn => {
+                const isMatch = btn.getAttribute('data-filter') === filterVal;
+                btn.className = isMatch
+                    ? 'qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-primary text-md-onPrimary shadow-sm'
+                    : 'qchip px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition bg-md-surfaceContainerHigh text-md-onSurfaceVariant hover:bg-md-surfaceVariant';
+            });
+
+            renderDistroCatalog();
+        }
+
+        function toggleExpandSheet() {
+            state.sheetExpanded = !state.sheetExpanded;
+            if (state.listCollapsed && state.sheetExpanded) {
+                toggleBottomList();
+            }
+            const wrapper = document.getElementById('bottomListWrapper');
+            const icon = document.getElementById('expandSheetIcon');
+            if (state.sheetExpanded) {
+                wrapper.classList.remove('max-h-40', 'sm:max-h-52');
+                wrapper.classList.add('max-h-[65vh]');
+                icon.textContent = 'close_fullscreen';
+            } else {
+                wrapper.classList.remove('max-h-[65vh]');
+                wrapper.classList.add('max-h-40', 'sm:max-h-52');
+                icon.textContent = 'open_in_full';
+            }
+        }
+        function toggleBottomList() {
+            state.listCollapsed = !state.listCollapsed;
+            const wrapper = document.getElementById('bottomListWrapper');
+            const quickRow = document.getElementById('quickFilterRow');
+            const icon = document.getElementById('toggleListIcon');
+            if (state.listCollapsed) {
+                wrapper.classList.add('hidden');
+                quickRow.classList.add('hidden');
+                icon.textContent = 'expand_less';
+            } else {
+                wrapper.classList.remove('hidden');
+                quickRow.classList.remove('hidden');
+                icon.textContent = 'expand_more';
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            document.getElementById('toastText').textContent = msg;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 2400);
+        }
+
+        function copyShareResult() {
+            const session = getActiveSession();
+            const target = getDistroById(session.targetId);
+            const t = I18N[state.lang];
+
+            const title = state.mode === 'daily' 
+                ? `Distrodle #${state.daily.dayNumber} (${session.guesses.length} ${t.attempts.toLowerCase()})`
+                : `Distrodle ∞ (${session.guesses.length} ${t.attempts.toLowerCase()})`;
+
+            const emojiRows = session.guesses.map(gId => {
+                const g = getDistroById(gId);
+                const ev = evaluateGuess(g, target);
+                const mapTile = s => s === 'exact' ? '🟩' : (s === 'partial' ? '🟨' : '🟥');
+                return [
+                    mapTile(ev.basedOn),
+                    mapTile(ev.init),
+                    mapTile(ev.pkg),
+                    mapTile(ev.de),
+                    mapTile(ev.releaseModel),
+                    mapTile(ev.arch),
+                    mapTile(ev.year.status)
+                ].join('');
+            }).join('\n');
+
+            const fullText = `${title}\n${emojiRows}`;
+
+            // Reliable iframe clipboard copy
+            const tempArea = document.createElement('textarea');
+            tempArea.value = fullText;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+
+            showToast(t.copiedToast);
+        }
+
+        function updateDailyCountdownText() {
+            const el = document.getElementById('dailyCountdown');
+            if (!el || state.mode !== 'daily') return;
+            const now = new Date();
+            const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            const diff = Math.max(0, tomorrow - now);
+            const hrs = String(Math.floor(diff / 3600000)).padStart(2, '0');
+            const mins = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            const secs = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            el.textContent = `${I18N[state.lang].nextDailyIn} ${hrs}:${mins}:${secs}`;
+        }
+
+        /* ============================================================================
+         * 8. INITIALIZATION
+         * ============================================================================ */
+        window.addEventListener('DOMContentLoaded', () => {
+            initGameState();
+            renderAllUI(false);
+
+            // Search input listeners
+            const searchInput = document.getElementById('distroSearchInput');
+            searchInput.addEventListener('input', () => {
+                if (state.listCollapsed) toggleBottomList();
+                renderDistroCatalog();
+            });
+
+            // Press Enter to submit the first matching distro in the filtered list
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const firstButton = document.querySelector('#distroCatalogGrid button:not([disabled])');
+                    if (firstButton) {
+                        firstButton.click();
+                        searchInput.blur();
+                    }
+                }
+            });
+
+            // Mobile Touch Swipe gestures on the Bottom Sheet Handle
+            const handle = document.getElementById('mobileSheetHandle');
+            let touchStartY = 0;
+            handle.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            handle.addEventListener('touchend', (e) => {
+                const deltaY = e.changedTouches[0].clientY - touchStartY;
+                if (deltaY < -30) {
+                    // Swiped Up -> Open or Expand
+                    if (state.listCollapsed) toggleBottomList();
+                    else if (!state.sheetExpanded) toggleExpandSheet();
+                } else if (deltaY > 30) {
+                    // Swiped Down -> Shrink or Collapse
+                    if (state.sheetExpanded) toggleExpandSheet();
+                    else if (!state.listCollapsed) toggleBottomList();
+                }
+            }, { passive: true });
+
+            // Live countdown timer for Daily Challenge
+            setInterval(updateDailyCountdownText, 1000);
+        });
+    </script>
+</body>
+</html>
+```
