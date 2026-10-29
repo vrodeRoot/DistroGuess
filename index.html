@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distrodle — Угадай Linux Дистрибутив | Игра-викторина от vroderoot</title>
+    <title>DistroGuess — Угадай Linux Дистрибутив | Игра-викторина от vroderoot</title>
     
     <!-- Primary Google SEO Metadata -->
-    <meta name="description" content="Distrodle — ежедневная и бесконечная игра-головоломка по дистрибутивам Linux. Угадывай дистрибутивы по пакетному менеджеру, системе инициализации (Init), DE, базе и году выпуска. Создано vroderoot (100% Vibe Code на Gemini Argon).">
-    <meta name="keywords" content="Distrodle, угадай линукс дистрибутив, игра про Linux, викторина Linux, Arch, Debian, Ubuntu, Fedora, NixOS, Gentoo, vroderoot, Gemini Argon, vibe coding, вайб код">
+    <meta name="description" content="DistroGuess — ежедневная и бесконечная игра-головоломка по дистрибутивам Linux. Угадывай дистрибутивы по пакетному менеджеру, системе инициализации (Init), DE, базе и году выпуска. Создано vroderoot (100% Vibe Code на Gemini Argon).">
+    <meta name="keywords" content="DistroGuess, угадай линукс дистрибутив, игра про Linux, викторина Linux, Arch, Debian, Ubuntu, Fedora, NixOS, Gentoo, vroderoot, Gemini Argon, vibe coding, вайб код">
     <meta name="author" content="vroderoot">
     <meta name="creator" content="vroderoot">
     <meta name="generator" content="Gemini Argon (100% Vibe Code)">
@@ -17,15 +17,15 @@
 
     <!-- Open Graph / Facebook / Telegram / Discord -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Distrodle by vroderoot">
-    <meta property="og:title" content="Distrodle — Угадай Linux Дистрибутив (Игра для линуксоидов)">
+    <meta property="og:site_name" content="DistroGuess by vroderoot">
+    <meta property="og:title" content="DistroGuess — Угадай Linux Дистрибутив (Игра для линуксоидов)">
     <meta property="og:description" content="Ежедневная и бесконечная игра по дистрибутивам Linux в дизайне Material Design 3. На 100% Vibe Code на Gemini Argon от vroderoot.">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Distrodle — Угадай Linux Дистрибутив">
+    <meta name="twitter:title" content="DistroGuess — Угадай Linux Дистрибутив">
     <meta name="twitter:description" content="Ежедневная головоломка для линуксоидов: сравнивай пакетные менеджеры, Init, DE и год релиза. Автор: vroderoot (100% Vibe Code на Gemini Argon).">
     <meta name="twitter:creator" content="@vroderoot">
 
@@ -34,17 +34,20 @@
     {
         "@context": "https://schema.org",
         "@type": "VideoGame",
-        "name": "Distrodle",
+        "name": "DistroGuess",
         "alternateName": "Linux Distro Guessing Game",
         "description": "Интерактивная ежедневная головоломка по дистрибутивам Linux. Создано на 100% методом Vibe Coding на модели Gemini Argon.",
         "genre": ["Puzzle", "Trivia", "Linux"],
         "inLanguage": ["ru", "en"],
         "applicationCategory": "Game",
         "operatingSystem": "Web Browser",
+        "codeRepository": "https://github.com/vroderoot/DistroGuess",
         "author": {
             "@type": "Person",
             "name": "vroderoot",
+            "url": "https://github.com/vroderoot",
             "sameAs": [
+                "https://github.com/vroderoot",
                 "https://www.tiktok.com/@vroderoot",
                 "https://youtube.com/@vroderoot"
             ]
@@ -52,7 +55,9 @@
         "creator": {
             "@type": "Person",
             "name": "vroderoot",
+            "url": "https://github.com/vroderoot",
             "sameAs": [
+                "https://github.com/vroderoot",
                 "https://www.tiktok.com/@vroderoot",
                 "https://youtube.com/@vroderoot"
             ]
@@ -214,7 +219,7 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-1.5 sm:gap-2">
-                        <h1 class="text-lg sm:text-xl font-bold tracking-tight leading-none">Distrodle</h1>
+                        <h1 class="text-lg sm:text-xl font-bold tracking-tight leading-none">DistroGuess</h1>
                         <span id="dailyBadge" class="text-[11px] sm:text-xs font-mono px-2 py-0.5 rounded-full bg-md-secondaryContainer text-md-onSecondaryContainer font-medium">#1</span>
                     </div>
                     <p id="subtitleText" class="text-[11px] sm:text-xs text-md-onSurfaceVariant line-clamp-1 mt-0.5">Угадай Linux дистрибутив по параметрам</p>
@@ -410,7 +415,7 @@
                 </button>
             </div>
 
-            <!-- Scrollable Distro Catalog Grid (Restored!) -->
+            <!-- Scrollable Distro Catalog Grid -->
             <div id="bottomListWrapper" class="max-h-40 sm:max-h-52 overflow-y-auto pr-1 transition-all">
                 <div id="distroCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     <!-- Populated via JS -->
@@ -433,7 +438,7 @@
             <div class="flex items-center justify-between gap-2">
                 <h2 id="modalTitle" class="text-base sm:text-lg font-bold flex items-center gap-2">
                     <span class="material-symbols-outlined text-md-primary">info</span>
-                    <span>Distrodle</span>
+                    <span>DistroGuess</span>
                 </h2>
                 <button onclick="toggleHelpModal(false)" class="w-8 h-8 rounded-full hover:bg-md-surfaceVariant flex items-center justify-center shrink-0">
                     <span class="material-symbols-outlined">close</span>
@@ -463,8 +468,9 @@
             </div>
 
             <div class="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-md-outlineVariant/40">
-                <div class="flex items-center gap-2 text-xs font-mono text-md-onSurfaceVariant">
+                <div class="flex flex-wrap items-center gap-1.5 text-xs font-mono text-md-onSurfaceVariant">
                     <span>by <strong class="text-md-primary">vroderoot</strong></span>
+                    <a href="https://github.com/vroderoot" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-full bg-md-surfaceContainer hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer transition">GitHub</a>
                     <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-full bg-md-surfaceContainer hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer transition">TikTok</a>
                     <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-full bg-md-surfaceContainer hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer transition">YouTube</a>
                 </div>
@@ -1137,10 +1143,10 @@
                 },
                 tabRules: 'Правила игры',
                 tabAbout: 'О проекте / Vibe Code',
-                modalTitle: 'Справка и О проекте',
+                modalTitle: 'DistroGuess — Справка и О проекте',
                 legalFooter: 'Неофициальный проект (@vroderoot). Названия дистрибутивов приведены исключительно в справочно-игровых целях (Nominative Fair Use). Официальные логотипы не используются (все эмблемы — процедурная геометрия). Проект не аффилирован с Linux Foundation, Canonical, Red Hat, SPI или иными правообладателями.',
                 modalHtml: `
-                    <p><strong>Distrodle</strong> — ежедневная игра-головоломка для любителей Linux и Open Source.</p>
+                    <p><strong>DistroGuess</strong> — ежедневная игра-головоломка для любителей Linux и Open Source.</p>
                     <ul class="list-disc pl-5 space-y-1">
                         <li><strong class="text-emerald-500">Зелёный цвет:</strong> Полное совпадение параметра с загаданным дистрибутивом.</li>
                         <li><strong class="text-amber-500">Жёлтый/Оранжевый цвет:</strong> Частичное совпадение (например, совпадает один из нескольких пакетных менеджеров или DE, либо год выпуска отличается не более чем на 3 года).</li>
@@ -1159,7 +1165,7 @@
                             <span>100% Vibe Code Project</span>
                         </div>
                         <p class="text-xs sm:text-sm leading-relaxed">
-                            Этот проект создан на <strong>100% методом вайб-кодинга (Vibe Code)</strong> с использованием языковой модели <strong>Gemini Argon</strong> — без ручного написания бойлерплейта, от архитектуры до процедурной SVG-графики и адаптивного дизайна Material Design 3.
+                            Проект <strong>DistroGuess</strong> создан на <strong>100% методом вайб-кодинга (Vibe Code)</strong> с использованием языковой модели <strong>Gemini Argon</strong> — без ручного написания бойлерплейта, от архитектуры до процедурной SVG-графики и адаптивного дизайна Material Design 3.
                         </p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -1179,15 +1185,19 @@
                         </div>
                     </div>
                     <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 space-y-2">
-                        <div class="text-xs font-bold text-md-onSurface">Соцсети автора (@vroderoot):</div>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
-                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
-                                <span>TikTok @vroderoot</span>
+                        <div class="text-xs font-bold text-md-onSurface">Ссылки автора (@vroderoot):</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <a href="https://github.com/vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">code</span>
+                                <span>GitHub</span>
                             </a>
-                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
                                 <span class="material-symbols-outlined text-[16px]">play_circle</span>
-                                <span>YouTube @vroderoot</span>
+                                <span>YouTube</span>
                             </a>
                         </div>
                     </div>
@@ -1195,7 +1205,7 @@
                         <div class="font-bold text-md-onSurface">Стек и особенности:</div>
                         <p>• Дизайн-система: Material Design 3 (Tonal Palette, Dark/Light адаптация)</p>
                         <p>• Графика: Процедурный генератор пародийных векторных иконок (Trademark-Safe SVG)</p>
-                        <p>• SEO Ready: Полный набор метаданных для индексации Google, OpenGraph и JSON-LD Schema.org</p>
+                        <p>• Лицензия: MIT License (Open Source)</p>
                     </div>
                 `
             },
@@ -1239,10 +1249,10 @@
                 },
                 tabRules: 'How to Play',
                 tabAbout: 'About / Vibe Code',
-                modalTitle: 'Help & Project Credits',
+                modalTitle: 'DistroGuess — Help & Credits',
                 legalFooter: 'Unofficial fan trivia project (@vroderoot). Distribution names are used strictly for identification and trivia purposes under Nominative Fair Use. No official logos are used (all icons are procedural geometry). Not affiliated with or endorsed by The Linux Foundation, Canonical, Red Hat, SPI, or any respective trademark owners.',
                 modalHtml: `
-                    <p><strong>Distrodle</strong> is a daily deduction trivia game for Linux enthusiasts.</p>
+                    <p><strong>DistroGuess</strong> is a daily deduction trivia game for Linux enthusiasts.</p>
                     <ul class="list-disc pl-5 space-y-1">
                         <li><strong class="text-emerald-500">Green tile:</strong> Exact match with the mystery distribution.</li>
                         <li><strong class="text-amber-500">Amber tile:</strong> Partial match (shares at least one item in Based On, Init, Package Manager, DE, or Architecture, or the release year is within ±3 years).</li>
@@ -1261,7 +1271,7 @@
                             <span>100% Vibe Code Project</span>
                         </div>
                         <p class="text-xs sm:text-sm leading-relaxed">
-                            This web app was crafted with <strong>100% Vibe Coding</strong> powered by <strong>Gemini Argon</strong> — from the game logic and deterministic daily seed to the trademark-safe procedural SVG icons and Material Design 3 mobile UI.
+                            <strong>DistroGuess</strong> was crafted with <strong>100% Vibe Coding</strong> powered by <strong>Gemini Argon</strong> — from the game logic and deterministic daily seed to the trademark-safe procedural SVG icons and Material Design 3 mobile UI.
                         </p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -1281,15 +1291,19 @@
                         </div>
                     </div>
                     <div class="p-3 rounded-2xl bg-md-surfaceContainer border border-md-outlineVariant/50 space-y-2">
-                        <div class="text-xs font-bold text-md-onSurface">Author's Socials (@vroderoot):</div>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
-                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
-                                <span>TikTok @vroderoot</span>
+                        <div class="text-xs font-bold text-md-onSurface">Author's Links (@vroderoot):</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <a href="https://github.com/vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">code</span>
+                                <span>GitHub</span>
                             </a>
-                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                            <a href="https://www.tiktok.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
+                                <span class="material-symbols-outlined text-[16px]">smart_display</span>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="https://youtube.com/@vroderoot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-md-surfaceContainerHigh hover:bg-md-primaryContainer hover:text-md-onPrimaryContainer font-mono text-xs font-bold transition border border-md-outlineVariant/50">
                                 <span class="material-symbols-outlined text-[16px]">play_circle</span>
-                                <span>YouTube @vroderoot</span>
+                                <span>YouTube</span>
                             </a>
                         </div>
                     </div>
@@ -1297,7 +1311,7 @@
                         <div class="font-bold text-md-onSurface">Tech Highlights:</div>
                         <p>• Design System: Material Design 3 (Tonal Palette, Dark/Light themes)</p>
                         <p>• Artwork: Procedural Trademark-Safe Geometric SVG Generator</p>
-                        <p>• SEO Ready: Full Google Search metadata, OpenGraph & Schema.org JSON-LD</p>
+                        <p>• License: MIT License (Open Source)</p>
                     </div>
                 `
             }
@@ -1307,8 +1321,8 @@
          * 4. GAME STATE & DATE-BASED DETERMINISTIC SEEDING
          * ============================================================================ */
         let state = {
-            lang: localStorage.getItem('distrodle_lang') || 'ru',
-            theme: localStorage.getItem('distrodle_theme') || 'dark',
+            lang: localStorage.getItem('distroguess_lang') || 'ru',
+            theme: localStorage.getItem('distroguess_theme') || 'dark',
             mode: 'daily', // 'daily' | 'endless'
             modalTab: 'rules', // 'rules' | 'about'
             listCollapsed: false,
@@ -1374,7 +1388,7 @@
 
             // Initialize Daily State
             const today = getTodayInfo();
-            const savedDailyRaw = localStorage.getItem('distrodle_daily_v1');
+            const savedDailyRaw = localStorage.getItem('distroguess_daily_v1');
             if (savedDailyRaw) {
                 try {
                     const parsed = JSON.parse(savedDailyRaw);
@@ -1394,7 +1408,7 @@
             }
 
             // Initialize Endless State
-            const savedEndlessRaw = localStorage.getItem('distrodle_endless_v1');
+            const savedEndlessRaw = localStorage.getItem('distroguess_endless_v1');
             if (savedEndlessRaw) {
                 try {
                     state.endless = JSON.parse(savedEndlessRaw);
@@ -1434,10 +1448,10 @@
         }
 
         function saveState() {
-            localStorage.setItem('distrodle_daily_v1', JSON.stringify(state.daily));
-            localStorage.setItem('distrodle_endless_v1', JSON.stringify(state.endless));
-            localStorage.setItem('distrodle_lang', state.lang);
-            localStorage.setItem('distrodle_theme', state.theme);
+            localStorage.setItem('distroguess_daily_v1', JSON.stringify(state.daily));
+            localStorage.setItem('distroguess_endless_v1', JSON.stringify(state.endless));
+            localStorage.setItem('distroguess_lang', state.lang);
+            localStorage.setItem('distroguess_theme', state.theme);
         }
 
         function getActiveSession() {
@@ -1935,6 +1949,7 @@
                 icon.textContent = 'open_in_full';
             }
         }
+
         function toggleBottomList() {
             state.listCollapsed = !state.listCollapsed;
             const wrapper = document.getElementById('bottomListWrapper');
@@ -1968,8 +1983,8 @@
             const t = I18N[state.lang];
 
             const title = state.mode === 'daily' 
-                ? `Distrodle #${state.daily.dayNumber} (${session.guesses.length} ${t.attempts.toLowerCase()})`
-                : `Distrodle ∞ (${session.guesses.length} ${t.attempts.toLowerCase()})`;
+                ? `DistroGuess #${state.daily.dayNumber} (${session.guesses.length} ${t.attempts.toLowerCase()})`
+                : `DistroGuess ∞ (${session.guesses.length} ${t.attempts.toLowerCase()})`;
 
             const emojiRows = session.guesses.map(gId => {
                 const g = getDistroById(gId);
@@ -1986,7 +2001,7 @@
                 ].join('');
             }).join('\n');
 
-            const fullText = `${title}\n${emojiRows}`;
+            const fullText = `${title}\n${emojiRows}\nhttps://github.com/vroderoot/DistroGuess`;
 
             // Reliable iframe clipboard copy
             const tempArea = document.createElement('textarea');
