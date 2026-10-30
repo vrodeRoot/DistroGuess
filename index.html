@@ -489,6 +489,19 @@
          * ============================================================================ */
         const DISTROS = [
             {
+                id: 'chimera',
+                name: 'Chimera Linux',
+                basedOn: ['Independent'],
+                init: ['dinit'],
+                pkg: ['apk'],
+                de: ['GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'AArch64', 'ppc64le', 'riscv64'],
+                year: 2021,
+                origin: { ru: 'Независимый', en: 'Independent' },
+                colors: ['#E65C00', '#2E3440'],
+                shape: 'hex'
+            },
                 id: 'ubuntu',
                 name: 'Ubuntu',
                 basedOn: ['Debian'],
