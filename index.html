@@ -87,21 +87,21 @@
                     },
                     colors: {
                         md: {
-                            bg: 'var(--md-bg)',
-                            surface: 'var(--md-surface)',
-                            surfaceVariant: 'var(--md-surface-variant)',
-                            surfaceContainer: 'var(--md-surface-container)',
-                            surfaceContainerHigh: 'var(--md-surface-container-high)',
-                            primary: 'var(--md-primary)',
-                            onPrimary: 'var(--md-on-primary)',
-                            primaryContainer: 'var(--md-primary-container)',
-                            onPrimaryContainer: 'var(--md-on-primary-container)',
-                            secondaryContainer: 'var(--md-secondary-container)',
-                            onSecondaryContainer: 'var(--md-on-secondary-container)',
-                            onSurface: 'var(--md-on-surface)',
-                            onSurfaceVariant: 'var(--md-on-surface-variant)',
-                            outline: 'var(--md-outline)',
-                            outlineVariant: 'var(--md-outline-variant)',
+                            bg: 'rgb(var(--md-bg-rgb) / <alpha-value>)',
+                            surface: 'rgb(var(--md-surface-rgb) / <alpha-value>)',
+                            surfaceVariant: 'rgb(var(--md-surface-variant-rgb) / <alpha-value>)',
+                            surfaceContainer: 'rgb(var(--md-surface-container-rgb) / <alpha-value>)',
+                            surfaceContainerHigh: 'rgb(var(--md-surface-container-high-rgb) / <alpha-value>)',
+                            primary: 'rgb(var(--md-primary-rgb) / <alpha-value>)',
+                            onPrimary: 'rgb(var(--md-on-primary-rgb) / <alpha-value>)',
+                            primaryContainer: 'rgb(var(--md-primary-container-rgb) / <alpha-value>)',
+                            onPrimaryContainer: 'rgb(var(--md-on-primary-container-rgb) / <alpha-value>)',
+                            secondaryContainer: 'rgb(var(--md-secondary-container-rgb) / <alpha-value>)',
+                            onSecondaryContainer: 'rgb(var(--md-on-secondary-container-rgb) / <alpha-value>)',
+                            onSurface: 'rgb(var(--md-on-surface-rgb) / <alpha-value>)',
+                            onSurfaceVariant: 'rgb(var(--md-on-surface-variant-rgb) / <alpha-value>)',
+                            outline: 'rgb(var(--md-outline-rgb) / <alpha-value>)',
+                            outlineVariant: 'rgb(var(--md-outline-variant-rgb) / <alpha-value>)',
                         }
                     }
                 }
@@ -110,46 +110,48 @@
     </script>
 
     <style>
-        /* Material Design 3 Color Tokens (Tonal Palette: Terminal Mint / Cyan) */
-        :root {
-            --md-bg: #F6FBF8;
-            --md-surface: #F6FBF8;
-            --md-surface-variant: #DAE5E0;
-            --md-surface-container: #EAEFE9;
-            --md-surface-container-high: #E2E9E4;
-            --md-primary: #006B58;
-            --md-on-primary: #FFFFFF;
-            --md-primary-container: #7BF8D8;
-            --md-on-primary-container: #002019;
-            --md-secondary-container: #CFE9DF;
-            --md-on-secondary-container: #07201A;
-            --md-on-surface: #171D1B;
-            --md-on-surface-variant: #3F4945;
-            --md-outline: #6F7975;
-            --md-outline-variant: #BFC9C4;
+        /* Material Design 3 Color Tokens in RGB channels (Supports all Tailwind /opacity modifiers in Light & Dark modes) */
+        :root, html.light {
+            --md-bg-rgb: 244 250 247;
+            --md-surface-rgb: 244 250 247;
+            --md-surface-variant-rgb: 214 228 222;
+            --md-surface-container-rgb: 232 242 238;
+            --md-surface-container-high-rgb: 220 233 227;
+            --md-primary-rgb: 0 107 88;
+            --md-on-primary-rgb: 255 255 255;
+            --md-primary-container-rgb: 162 244 220;
+            --md-on-primary-container-rgb: 0 32 25;
+            --md-secondary-container-rgb: 201 232 221;
+            --md-on-secondary-container-rgb: 7 32 26;
+            --md-on-surface-rgb: 20 29 26;
+            --md-on-surface-variant-rgb: 58 73 68;
+            --md-outline-rgb: 105 121 116;
+            --md-outline-variant-rgb: 182 198 192;
+            color-scheme: light;
         }
 
         html.dark {
-            --md-bg: #0E1513;
-            --md-surface: #0E1513;
-            --md-surface-variant: #3F4945;
-            --md-surface-container: #1A211F;
-            --md-surface-container-high: #252B29;
-            --md-primary: #5DDBBC;
-            --md-on-primary: #00382D;
-            --md-primary-container: #005142;
-            --md-on-primary-container: #7BF8D8;
-            --md-secondary-container: #334B43;
-            --md-on-secondary-container: #CBE8DD;
-            --md-on-surface: #DEE4E0;
-            --md-on-surface-variant: #BFC9C4;
-            --md-outline: #89938E;
-            --md-outline-variant: #3F4945;
+            --md-bg-rgb: 14 21 19;
+            --md-surface-rgb: 14 21 19;
+            --md-surface-variant-rgb: 63 73 69;
+            --md-surface-container-rgb: 26 33 31;
+            --md-surface-container-high-rgb: 37 43 41;
+            --md-primary-rgb: 93 219 188;
+            --md-on-primary-rgb: 0 56 45;
+            --md-primary-container-rgb: 0 81 66;
+            --md-on-primary-container-rgb: 123 248 216;
+            --md-secondary-container-rgb: 51 75 67;
+            --md-on-secondary-container-rgb: 203 232 221;
+            --md-on-surface-rgb: 222 228 224;
+            --md-on-surface-variant-rgb: 191 201 196;
+            --md-outline-rgb: 137 147 142;
+            --md-outline-variant-rgb: 63 73 69;
+            color-scheme: dark;
         }
 
         body {
-            background-color: var(--md-bg);
-            color: var(--md-on-surface);
+            background-color: rgb(var(--md-bg-rgb));
+            color: rgb(var(--md-on-surface-rgb));
             transition: background-color 0.25s ease, color 0.25s ease;
             overflow-x: hidden;
         }
@@ -184,11 +186,11 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--md-outline-variant);
+            background: rgb(var(--md-outline-variant-rgb));
             border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--md-outline);
+            background: rgb(var(--md-outline-rgb));
         }
 
         .material-symbols-outlined {
@@ -388,7 +390,7 @@
 
                 <!-- Toggle Collapse List Button -->
                 <button onclick="toggleBottomList()" class="h-9 sm:h-10 px-3 rounded-full bg-md-surfaceContainerHigh hover:bg-md-surfaceVariant text-md-onSurfaceVariant flex items-center gap-1 text-xs font-medium shrink-0 transition">
-                    <span id="availableCountBadge" class="font-mono font-bold text-md-primary">44</span>
+                    <span id="availableCountBadge" class="font-mono font-bold text-md-primary">66</span>
                     <span id="toggleListIcon" class="material-symbols-outlined text-[20px]">expand_more</span>
                 </button>
             </div>
@@ -1122,6 +1124,314 @@
                 origin: { ru: 'Международный', en: 'Global' },
                 colors: ['#F59E0B', '#374151'],
                 shape: 'golden-horns'
+            },
+            {
+                id: 'kubuntu',
+                name: 'Kubuntu',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'snap'],
+                de: ['KDE Plasma'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2005,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#0079C1', '#004A77'],
+                shape: 'kino-gear'
+            },
+            {
+                id: 'xubuntu',
+                name: 'Xubuntu',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'snap'],
+                de: ['Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2006,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#0044AA', '#2A7FFF'],
+                shape: 'slash-x'
+            },
+            {
+                id: 'lubuntu',
+                name: 'Lubuntu',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'snap'],
+                de: ['LXQt'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2009,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#0068C8', '#64B5F6'],
+                shape: 'sail-prism'
+            },
+            {
+                id: 'ubuntu-mate',
+                name: 'Ubuntu MATE',
+                basedOn: ['Ubuntu', 'Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'snap'],
+                de: ['MATE'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2014,
+                origin: { ru: 'Британия', en: 'UK' },
+                colors: ['#87A556', '#4E6A26'],
+                shape: 'tri-nodes'
+            },
+            {
+                id: 'opensuse-leap',
+                name: 'openSUSE Leap',
+                basedOn: ['SUSE (SLES)', 'Independent'],
+                init: ['systemd'],
+                pkg: ['zypper', 'rpm'],
+                de: ['KDE Plasma', 'GNOME', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2015,
+                origin: { ru: 'Германия', en: 'Germany' },
+                colors: ['#35B9AB', '#173F4F'],
+                shape: 'crystal-cube'
+            },
+            {
+                id: 'opensuse-microos',
+                name: 'openSUSE Aeon / MicroOS',
+                basedOn: ['openSUSE', 'Independent'],
+                init: ['systemd'],
+                pkg: ['transactional-update', 'flatpak'],
+                de: ['GNOME', 'KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2017,
+                origin: { ru: 'Германия', en: 'Germany' },
+                colors: ['#73BA25', '#0D9488'],
+                shape: 'core-rings'
+            },
+            {
+                id: 'centos-stream',
+                name: 'CentOS Stream',
+                basedOn: ['Fedora', 'RHEL'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm'],
+                de: ['GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2019,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#932279', '#262577'],
+                shape: 'alma-petals'
+            },
+            {
+                id: 'oracle-linux',
+                name: 'Oracle Linux',
+                basedOn: ['RHEL', 'Fedora'],
+                init: ['systemd'],
+                pkg: ['dnf', 'yum', 'rpm'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2006,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#F80000', '#7F0000'],
+                shape: 'void-eclipse'
+            },
+            {
+                id: 'lmde',
+                name: 'LMDE (Mint Debian Edition)',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg', 'flatpak'],
+                de: ['Cinnamon'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 2010,
+                origin: { ru: 'Ирландия / Франция', en: 'Ireland / France' },
+                colors: ['#68B723', '#A80030'],
+                shape: 'mint-leaf'
+            },
+            {
+                id: 'raspios',
+                name: 'Raspberry Pi OS',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['PIXEL (LXDE / Wayfire)'],
+                releaseModel: 'Fixed',
+                arch: ['ARM64', 'i686'],
+                year: 2012,
+                origin: { ru: 'Британия', en: 'UK' },
+                colors: ['#C51A4A', '#6CC04A'],
+                shape: 'pebble-gem'
+            },
+            {
+                id: 'parrot',
+                name: 'Parrot OS',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['MATE', 'KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2013,
+                origin: { ru: 'Италия', en: 'Italy' },
+                colors: ['#05D5FF', '#004E89'],
+                shape: 'neon-wing'
+            },
+            {
+                id: 'blackarch',
+                name: 'BlackArch',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['Fluxbox', 'Openbox', 'Awesome'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2013,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#111827', '#DC2626'],
+                shape: 'cyber-shield'
+            },
+            {
+                id: 'archcraft',
+                name: 'Archcraft',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['Openbox', 'bspwm', 'Hyprland'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2020,
+                origin: { ru: 'Индия', en: 'India' },
+                colors: ['#6366F1', '#EC4899'],
+                shape: 'tile-branches'
+            },
+            {
+                id: 'deepin',
+                name: 'Deepin',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['DDE (Deepin DE)'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64', 'RISC-V'],
+                year: 2004,
+                origin: { ru: 'Китай', en: 'China' },
+                colors: ['#0081FF', '#00C9FF'],
+                shape: 'spiral-arc'
+            },
+            {
+                id: 'vanillaos',
+                name: 'Vanilla OS',
+                basedOn: ['Debian', 'Ubuntu'],
+                init: ['systemd'],
+                pkg: ['abroot', 'apx', 'flatpak'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2022,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#FBBF24', '#D97706'],
+                shape: 'alma-petals'
+            },
+            {
+                id: 'clearlinux',
+                name: 'Clear Linux',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['swupd', 'flatpak'],
+                de: ['GNOME', 'Xfce'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2015,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#00AEEF', '#0071C5'],
+                shape: 'split-delta'
+            },
+            {
+                id: 'mageia',
+                name: 'Mageia',
+                basedOn: ['Mandriva'],
+                init: ['systemd'],
+                pkg: ['urpmi', 'dnf', 'rpm'],
+                de: ['KDE Plasma', 'GNOME', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 2011,
+                origin: { ru: 'Франция', en: 'France' },
+                colors: ['#262F45', '#2397D4'],
+                shape: 'core-rings'
+            },
+            {
+                id: 'pclinuxos',
+                name: 'PCLinuxOS',
+                basedOn: ['Mandriva'],
+                init: ['SysVinit'],
+                pkg: ['apt-rpm', 'synaptic'],
+                de: ['KDE Plasma', 'MATE', 'Xfce'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2003,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#1E3A8A', '#F97316'],
+                shape: 'lightning-hex'
+            },
+            {
+                id: 'kaos',
+                name: 'KaOS',
+                basedOn: ['Independent'],
+                init: ['systemd'],
+                pkg: ['pacman'],
+                de: ['KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2013,
+                origin: { ru: 'Нидерланды', en: 'Netherlands' },
+                colors: ['#2B6CB0', '#4FD1C5'],
+                shape: 'kino-gear'
+            },
+            {
+                id: 'tinycore',
+                name: 'Tiny Core Linux',
+                basedOn: ['Independent'],
+                init: ['BusyBox'],
+                pkg: ['tce-load'],
+                de: ['FLWM'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686', 'ARM64'],
+                year: 2009,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#4B5563', '#F59E0B'],
+                shape: 'core-rings'
+            },
+            {
+                id: 'altlinux',
+                name: 'ALT Linux',
+                basedOn: ['Independent', 'Mandrake'],
+                init: ['systemd', 'SysVinit'],
+                pkg: ['apt-rpm', 'rpm'],
+                de: ['KDE Plasma', 'MATE', 'Xfce'],
+                releaseModel: 'Hybrid',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2001,
+                origin: { ru: 'Россия', en: 'Russia' },
+                colors: ['#D97706', '#92400E'],
+                shape: 'mountain-ridge'
+            },
+            {
+                id: 'astralinux',
+                name: 'Astra Linux',
+                basedOn: ['Debian'],
+                init: ['systemd'],
+                pkg: ['apt', 'dpkg'],
+                de: ['Fly'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2009,
+                origin: { ru: 'Россия', en: 'Russia' },
+                colors: ['#1D4ED8', '#0F172A'],
+                shape: 'southern-cross'
             }
         ];
 
@@ -1678,9 +1988,13 @@
             // Apply saved theme
             if (state.theme === 'dark') {
                 document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
             } else {
                 document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
             }
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.setAttribute('content', state.theme === 'dark' ? '#0E1513' : '#F4FAF7');
 
             // Initialize Daily State
             const today = getTodayInfo();
@@ -2165,9 +2479,13 @@
             state.theme = state.theme === 'dark' ? 'light' : 'dark';
             if (state.theme === 'dark') {
                 document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
             } else {
                 document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
             }
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.setAttribute('content', state.theme === 'dark' ? '#0E1513' : '#F4FAF7');
             saveState();
             renderAllUI(false);
         }
