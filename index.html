@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ru" class="dark">
 <head>
@@ -483,7 +483,26 @@
 
     <script>
         /* ============================================================================
-         * 1. DISTRO DATABASE (30 Popular Linux Distributions)
+         * 0. SAFE STORAGE HELPER (Prevents errors in sandboxed iframes / strict modes)
+         * ============================================================================ */
+        const memoryStore = {};
+        function safeGetItem(key) {
+            try {
+                return window.localStorage.getItem(key);
+            } catch (e) {
+                return memoryStore[key] || null;
+            }
+        }
+        function safeSetItem(key, val) {
+            try {
+                window.localStorage.setItem(key, val);
+            } catch (e) {
+                memoryStore[key] = val;
+            }
+        }
+
+        /* ============================================================================
+         * 1. DISTRO DATABASE (33 Popular Linux Distributions)
          * Each distro uses a custom procedural Geometric Parody Icon to guarantee
          * 100% trademark & copyright safety while remaining visually recognizable!
          * ============================================================================ */
@@ -1382,8 +1401,8 @@
          * 4. GAME STATE & DATE-BASED DETERMINISTIC SEEDING
          * ============================================================================ */
         let state = {
-            lang: localStorage.getItem('distroguess_lang') || 'ru',
-            theme: localStorage.getItem('distroguess_theme') || 'dark',
+            lang: safeGetItem('distroguess_lang') || 'ru',
+            theme: safeGetItem('distroguess_theme') || 'dark',
             mode: 'daily', // 'daily' | 'endless'
             modalTab: 'rules', // 'rules' | 'about'
             listCollapsed: false,
@@ -1449,11 +1468,11 @@
 
             // Initialize Daily State
             const today = getTodayInfo();
-            const savedDailyRaw = localStorage.getItem('distroguess_daily_v1');
+            const savedDailyRaw = safeGetItem('distroguess_daily_v1');
             if (savedDailyRaw) {
                 try {
                     const parsed = JSON.parse(savedDailyRaw);
-                    if (parsed.dateKey === today.dateKey) {
+                    if (parsed.dateKey === today.dateKey && getDistroById(today.targetId)) {
                         state.daily = parsed;
                         // Ensure target matches deterministic calculation
                         state.daily.targetId = today.targetId;
@@ -1469,7 +1488,7 @@
             }
 
             // Initialize Endless State
-            const savedEndlessRaw = localStorage.getItem('distroguess_endless_v1');
+            const savedEndlessRaw = safeGetItem('distroguess_endless_v1');
             if (savedEndlessRaw) {
                 try {
                     state.endless = JSON.parse(savedEndlessRaw);
@@ -1509,10 +1528,10 @@
         }
 
         function saveState() {
-            localStorage.setItem('distroguess_daily_v1', JSON.stringify(state.daily));
-            localStorage.setItem('distroguess_endless_v1', JSON.stringify(state.endless));
-            localStorage.setItem('distroguess_lang', state.lang);
-            localStorage.setItem('distroguess_theme', state.theme);
+            safeSetItem('distroguess_daily_v1', JSON.stringify(state.daily));
+            safeSetItem('distroguess_endless_v1', JSON.stringify(state.endless));
+            safeSetItem('distroguess_lang', state.lang);
+            safeSetItem('distroguess_theme', state.theme);
         }
 
         function getActiveSession() {
@@ -2139,3 +2158,4 @@
     </script>
 </body>
 </html>
+```
