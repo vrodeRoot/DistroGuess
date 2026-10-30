@@ -489,19 +489,6 @@
          * ============================================================================ */
         const DISTROS = [
             {
-                id: 'chimera',
-                name: 'Chimera Linux',
-                basedOn: ['Independent'],
-                init: ['dinit'],
-                pkg: ['apk'],
-                de: ['GNOME'],
-                releaseModel: 'Rolling',
-                arch: ['x86_64', 'AArch64', 'ppc64le', 'riscv64'],
-                year: 2021,
-                origin: { ru: 'Независимый', en: 'Independent' },
-                colors: ['#E65C00', '#2E3440'],
-                shape: 'hex'
-            },
                 id: 'ubuntu',
                 name: 'Ubuntu',
                 basedOn: ['Debian'],
@@ -920,6 +907,48 @@
                 origin: { ru: 'Австралия', en: 'Australia' },
                 colors: ['#F59E0B', '#B45309'],
                 shape: 'paw-badge'
+            },
+            {
+                id: 'chimera',
+                name: 'Chimera Linux',
+                basedOn: ['Independent'],
+                init: ['dinit'],
+                pkg: ['apk'],
+                de: ['GNOME', 'KDE Plasma', 'None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64', 'RISC-V'],
+                year: 2021,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#D6336C', '#7048E8'],
+                shape: 'chimera-flame'
+            },
+            {
+                id: 'secureblue',
+                name: 'secureblue',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak'],
+                de: ['GNOME', 'KDE Plasma', 'COSMIC', 'Sway'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2023,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#1E3A8A', '#3B82F6'],
+                shape: 'lock-bastion'
+            },
+            {
+                id: 'crux',
+                name: 'CRUX',
+                basedOn: ['Independent'],
+                init: ['SysVinit'],
+                pkg: ['pkgutils', 'prt-get'],
+                de: ['None (DIY)'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64'],
+                year: 2001,
+                origin: { ru: 'Швеция', en: 'Sweden' },
+                colors: ['#1E293B', '#0EA5E9'],
+                shape: 'southern-cross'
             }
         ];
 
@@ -1088,6 +1117,25 @@
                     innerShape = `
                         <polygon points="12,46 28,18 42,46" fill="#fff"/>
                         <polygon points="28,46 40,26 52,46" fill="#fff" fill-opacity="0.65"/>`;
+                    break;
+                case 'chimera-flame':
+                    innerShape = `
+                        <path d="M32 12 C42 22 48 30 44 42 C41 50 23 50 20 42 C16 30 22 22 32 12 Z" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <polygon points="32,22 39,38 25,38" fill="#fff"/>`;
+                    break;
+                case 'lock-bastion':
+                    innerShape = `
+                        <rect x="19" y="29" width="26" height="20" rx="5" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <path d="M24 29 V22 A8 8 0 0 1 40 22 V29" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <circle cx="32" cy="39" r="3" fill="#fff"/>`;
+                    break;
+                case 'southern-cross':
+                    innerShape = `
+                        <polygon points="32,10 35,17 32,24 29,17" fill="#fff"/>
+                        <polygon points="32,38 35,45 32,52 29,45" fill="#fff"/>
+                        <polygon points="16,26 23,29 16,32 9,29" fill="#fff"/>
+                        <polygon points="48,24 55,27 48,30 41,27" fill="#fff"/>
+                        <circle cx="39" cy="36" r="2.8" fill="#fff" fill-opacity="0.85"/>`;
                     break;
                 default: // paw-badge
                     innerShape = `
