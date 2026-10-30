@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ru" class="dark">
 <head>
@@ -388,7 +388,7 @@
 
                 <!-- Toggle Collapse List Button -->
                 <button onclick="toggleBottomList()" class="h-9 sm:h-10 px-3 rounded-full bg-md-surfaceContainerHigh hover:bg-md-surfaceVariant text-md-onSurfaceVariant flex items-center gap-1 text-xs font-medium shrink-0 transition">
-                    <span id="availableCountBadge" class="font-mono font-bold text-md-primary">30</span>
+                    <span id="availableCountBadge" class="font-mono font-bold text-md-primary">44</span>
                     <span id="toggleListIcon" class="material-symbols-outlined text-[20px]">expand_more</span>
                 </button>
             </div>
@@ -968,6 +968,160 @@
                 origin: { ru: 'Швеция', en: 'Sweden' },
                 colors: ['#1E293B', '#0EA5E9'],
                 shape: 'southern-cross'
+            },
+            {
+                id: 'fedora-silverblue',
+                name: 'Fedora Silverblue',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak'],
+                de: ['GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2018,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#294172', '#62A0EA'],
+                shape: 'silver-leaf'
+            },
+            {
+                id: 'fedora-kinoite',
+                name: 'Fedora Kinoite',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak'],
+                de: ['KDE Plasma'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2021,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#1D99F3', '#3C6EB4'],
+                shape: 'kino-gear'
+            },
+            {
+                id: 'fedora-sway-atomic',
+                name: 'Fedora Sway Atomic (Sericea)',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak'],
+                de: ['Sway'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64'],
+                year: 2023,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#3C6EB4', '#589DF6'],
+                shape: 'tile-branches'
+            },
+            {
+                id: 'fedora-coreos',
+                name: 'Fedora CoreOS',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree'],
+                de: ['None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2018,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#294172', '#E95420'],
+                shape: 'core-rings'
+            },
+            {
+                id: 'bluefin',
+                name: 'Project Bluefin',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak', 'brew'],
+                de: ['GNOME'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64'],
+                year: 2023,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#0284C7', '#1E3A8A'],
+                shape: 'dorsal-fin'
+            },
+            {
+                id: 'aurora',
+                name: 'Aurora (Universal Blue)',
+                basedOn: ['Fedora'],
+                init: ['systemd'],
+                pkg: ['rpm-ostree', 'flatpak', 'brew'],
+                de: ['KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2024,
+                origin: { ru: 'США / Международный', en: 'USA / Global' },
+                colors: ['#8B5CF6', '#10B981'],
+                shape: 'aurora-wave'
+            },
+            {
+                id: 'steamos',
+                name: 'SteamOS (Holo)',
+                basedOn: ['Arch'],
+                init: ['systemd'],
+                pkg: ['pacman', 'flatpak'],
+                de: ['KDE Plasma'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64'],
+                year: 2013,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#171A21', '#66C0F4'],
+                shape: 'piston-crank'
+            },
+            {
+                id: 'almalinux',
+                name: 'AlmaLinux',
+                basedOn: ['RHEL', 'Fedora'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm'],
+                de: ['GNOME', 'KDE Plasma', 'Xfce'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'ARM64', 'RISC-V'],
+                year: 2021,
+                origin: { ru: 'США', en: 'USA' },
+                colors: ['#0F4266', '#F4C542'],
+                shape: 'alma-petals'
+            },
+            {
+                id: 'asahi',
+                name: 'Fedora Asahi Remix',
+                basedOn: ['Fedora', 'Arch'],
+                init: ['systemd'],
+                pkg: ['dnf', 'rpm', 'flatpak'],
+                de: ['KDE Plasma', 'GNOME'],
+                releaseModel: 'Fixed',
+                arch: ['ARM64'],
+                year: 2022,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#E11D48', '#F59E0B'],
+                shape: 'rising-sun'
+            },
+            {
+                id: 'antix',
+                name: 'antiX',
+                basedOn: ['Debian'],
+                init: ['SysVinit', 'runit'],
+                pkg: ['apt', 'dpkg'],
+                de: ['IceWM', 'Fluxbox', 'JWM'],
+                releaseModel: 'Fixed',
+                arch: ['x86_64', 'i686'],
+                year: 2007,
+                origin: { ru: 'Греция', en: 'Greece' },
+                colors: ['#B91C1C', '#1F2937'],
+                shape: 'slash-x'
+            },
+            {
+                id: 'guix',
+                name: 'GNU Guix System',
+                basedOn: ['Independent'],
+                init: ['GNU Shepherd'],
+                pkg: ['guix'],
+                de: ['GNOME', 'Xfce', 'None (DIY)'],
+                releaseModel: 'Rolling',
+                arch: ['x86_64', 'ARM64', 'i686'],
+                year: 2012,
+                origin: { ru: 'Международный', en: 'Global' },
+                colors: ['#F59E0B', '#374151'],
+                shape: 'golden-horns'
             }
         ];
 
@@ -1155,6 +1309,68 @@
                         <polygon points="16,26 23,29 16,32 9,29" fill="#fff"/>
                         <polygon points="48,24 55,27 48,30 41,27" fill="#fff"/>
                         <circle cx="39" cy="36" r="2.8" fill="#fff" fill-opacity="0.85"/>`;
+                    break;
+                case 'silver-leaf':
+                    innerShape = `
+                        <path d="M20 44 C20 22 44 16 46 16 C46 38 34 46 20 44 Z" fill="none" stroke="#fff" stroke-width="3.8"/>
+                        <circle cx="28" cy="36" r="4" fill="#fff"/>
+                        <path d="M28 36 L40 22" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>`;
+                    break;
+                case 'kino-gear':
+                    innerShape = `
+                        <circle cx="32" cy="32" r="12" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="6 4"/>
+                        <polyline points="29,24 23,32 29,40" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="35,24 41,32 35,40" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+                    break;
+                case 'tile-branches':
+                    innerShape = `
+                        <rect x="14" y="14" width="16" height="36" rx="3" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <rect x="34" y="14" width="16" height="16" rx="3" fill="#fff" fill-opacity="0.85"/>
+                        <rect x="34" y="34" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3.5"/>`;
+                    break;
+                case 'core-rings':
+                    innerShape = `
+                        <circle cx="32" cy="32" r="18" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 6"/>
+                        <circle cx="32" cy="32" r="10" fill="none" stroke="#fff" stroke-width="3.5"/>
+                        <circle cx="32" cy="32" r="4" fill="#fff"/>`;
+                    break;
+                case 'dorsal-fin':
+                    innerShape = `
+                        <path d="M16 46 C22 24 38 14 48 16 C42 28 42 38 48 46 Z" fill="#fff"/>
+                        <path d="M12 50 Q32 45 52 50" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`;
+                    break;
+                case 'aurora-wave':
+                    innerShape = `
+                        <path d="M12 40 Q24 20 34 34 T52 22" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M14 48 Q26 30 36 42 T50 32" fill="none" stroke="#fff" stroke-width="3" stroke-opacity="0.7" stroke-linecap="round"/>`;
+                    break;
+                case 'piston-crank':
+                    innerShape = `
+                        <circle cx="40" cy="24" r="9" fill="none" stroke="#fff" stroke-width="4"/>
+                        <circle cx="22" cy="42" r="5" fill="#fff"/>
+                        <line x1="22" y1="42" x2="36" y2="28" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`;
+                    break;
+                case 'alma-petals':
+                    innerShape = `
+                        <circle cx="32" cy="20" r="7" fill="none" stroke="#fff" stroke-width="3.2"/>
+                        <circle cx="32" cy="44" r="7" fill="none" stroke="#fff" stroke-width="3.2"/>
+                        <circle cx="20" cy="32" r="7" fill="none" stroke="#fff" stroke-width="3.2"/>
+                        <circle cx="44" cy="32" r="7" fill="none" stroke="#fff" stroke-width="3.2"/>`;
+                    break;
+                case 'rising-sun':
+                    innerShape = `
+                        <path d="M14 42 A18 18 0 0 1 50 42 Z" fill="#fff"/>
+                        <line x1="10" y1="47" x2="54" y2="47" stroke="#fff" stroke-width="3.8" stroke-linecap="round"/>`;
+                    break;
+                case 'slash-x':
+                    innerShape = `
+                        <line x1="16" y1="16" x2="48" y2="48" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                        <line x1="48" y1="16" x2="16" y2="48" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`;
+                    break;
+                case 'golden-horns':
+                    innerShape = `
+                        <path d="M16 18 C16 36 28 40 32 48 C36 40 48 36 48 18" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="32" cy="24" r="4" fill="#fff"/>`;
                     break;
                 default: // paw-badge
                     innerShape = `
@@ -2158,3 +2374,4 @@
     </script>
 </body>
 </html>
+```
