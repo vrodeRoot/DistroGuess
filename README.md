@@ -20,6 +20,10 @@ The author (**vroderoot**) wanted to dive into the emerging **Vibe Coding** nich
 - **Zero build step requirement:** The entire application lives inside a single, high-performance static HTML file that runs anywhere out of the box without Node.js, Webpack, or external bundlers.
 
 ---
+---
+> While checking the old name for existing projects, I found https://github.com/fedes1to/distrodle. I highly recommend checking it out.
+>
+---
 
 ## 🎮 Game Modes
 
